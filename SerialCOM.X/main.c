@@ -1,0 +1,544 @@
+#include <xc.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <float.h>
+#include "delays.h"
+#include "system.h"
+
+unsigned long millis = 0;
+long freq;
+
+int main(void)
+{
+    configuracionInicial();
+    setup();
+    while(1)
+    {
+        loop();
+    }
+    return 0;
+}
+
+void configuracionInicial(void)
+{
+    ADCConfig();
+    CCPConfig();
+    PORTAConfig();
+    PORTBConfig();
+    PORTCConfig();
+    PORTDConfig();
+    PORTEConfig();
+    TMR0Config();
+    TMR1Config();
+}
+void delay(const int milis)
+{
+    for(int a=1;a<=milis;a++)
+    {
+        Delay1KTCYx(12);
+    }
+}
+
+void delayMicroseconds(const int micros)
+{
+    //Con un Cristal de 20MHz el retardo es en Multipos de 2uSegundos
+    int m;
+    m = micros * 3;
+    Delay1TCYx(m);
+}
+
+void pinMode(char pin, char mode)
+{
+    switch(pin)
+    {
+        case 0:
+            TRISAbits.RA4 = mode;
+            break;
+        case 1:
+            TRISAbits.RA5 = mode;
+            break;
+        case 2:
+            TRISCbits.RC0 = mode;
+            break;
+        case 3:
+            TRISCbits.RC1 = mode;
+            break;
+        case 4:
+            TRISCbits.RC2 = mode;
+            break;
+        case 5:
+            TRISDbits.RD0 = mode;
+            break;
+        case 6:
+            TRISDbits.RD1 = mode;
+            break;
+        case 7:
+            TRISDbits.RD2 = mode;
+            break;
+        case 8:
+            TRISDbits.RD3 = mode;
+            break;
+        case 9:
+            TRISCbits.RC6 = mode;
+            break;
+        case 10:
+            TRISCbits.RC7 = mode;
+            break;
+        case 11:
+            TRISDbits.RD4 = mode;
+            break;
+        case 12:
+            TRISDbits.RD5 = mode;
+            break;
+        case 13:
+            TRISDbits.RD6 = mode;
+            break;
+        case 14:
+            TRISDbits.RD7 = mode;
+            break;
+        case 15:
+            TRISBbits.RB0 = mode;
+            break;
+        case 16:
+            TRISBbits.RB1 = mode;
+            break;
+        case 17:
+            TRISBbits.RB2 = mode;
+            break;
+        case 18:
+            TRISBbits.RB3 = mode;
+            break;
+        case 19:
+            TRISBbits.RB4 = mode;
+            break;
+        case 20:
+            TRISBbits.RB5 = mode;
+            break;
+        case 21:
+            TRISBbits.RB6 = mode;
+            break;
+        case 22:
+            TRISBbits.RB7 = mode;
+            break;
+    }
+}
+void digitalWrite(char pin, char mode)
+{
+    switch(pin)
+    {
+       case 0:
+           LATAbits.LA4 = mode;
+            break;
+        case 1:
+            LATAbits.LA5 = mode;
+            break;
+        case 2:
+            LATCbits.LC0 = mode;
+            break;
+        case 3:
+            LATCbits.LC1 = mode;
+            break;
+        case 4:
+            LATCbits.LC2 = mode;
+            break;
+        case 5:
+            LATDbits.LD0 = mode;
+            break;
+        case 6:
+            LATDbits.LD1 = mode;
+            break;
+        case 7:
+            LATDbits.LD2 = mode;
+            break;
+        case 8:
+            LATDbits.LD3 = mode;
+            break;
+        case 9:
+            LATCbits.LC6 = mode;
+            break;
+        case 10:
+            LATCbits.LC7 = mode;
+            break;
+        case 11:
+            LATDbits.LD4 = mode;
+            break;
+        case 12:
+            LATDbits.LD5 = mode;
+            break;
+        case 13:
+            LATDbits.LD6 = mode;
+            break;
+        case 14:
+            LATDbits.LD7 = mode;
+            break;
+        case 15:
+            LATBbits.LB0 = mode;
+            break;
+        case 16:
+            LATBbits.LB1 = mode;
+            break;
+        case 17:
+            LATBbits.LB2 = mode;
+            break;
+        case 18:
+            LATBbits.LB3 = mode;
+            break;
+        case 19:
+            LATBbits.LB4 = mode;
+            break;
+        case 20:
+            LATBbits.LB5 = mode;
+            break;
+        case 21:
+            LATBbits.LB6 = mode;
+            break;
+        case 22:
+            LATBbits.LB7 = mode;
+            break;
+    }
+}
+char digitalRead(char pin)
+{
+    switch(pin)
+    {
+       case 0:
+           return PORTAbits.RA4;
+            break;
+        case 1:
+            return PORTAbits.RA5;
+            break;
+        case 2:
+            return PORTCbits.RC0;
+            break;
+        case 3:
+            return PORTCbits.RC1;
+            break;
+        case 4:
+            return PORTCbits.RC2;
+            break;
+        case 5:
+            return PORTDbits.RD0;
+            break;
+        case 6:
+            return PORTDbits.RD1;
+            break;
+        case 7:
+            return PORTDbits.RD2;
+            break;
+        case 8:
+            return PORTDbits.RD3;
+            break;
+        case 9:
+            return PORTCbits.RC6;
+            break;
+        case 10:
+            return PORTCbits.RC7;
+            break;
+        case 11:
+            return PORTDbits.RD4;
+            break;
+        case 12:
+            return PORTDbits.RD5;
+            break;
+        case 13:
+            return PORTDbits.RD6;
+            break;
+        case 14:
+            return PORTDbits.RD7;
+            break;
+        case 15:
+            return PORTBbits.RB0;
+            break;
+        case 16:
+            return PORTBbits.RB1;
+            break;
+        case 17:
+            return PORTBbits.RB2;
+            break;
+        case 18:
+            return PORTBbits.RB3;
+            break;
+        case 19:
+            return PORTBbits.RB4;
+            break;
+        case 20:
+            return PORTBbits.RB5;
+            break;
+        case 21:
+            return PORTBbits.RB6;
+            break;
+        case 22:
+            return PORTBbits.RB7;
+            break;
+    }
+}
+unsigned int analogRead(char pin)
+{
+    switch(pin)
+    {
+        case 0:
+            ADCON0 = 0x03;
+            while(ADCON0bits.GODONE != 0)
+            {}
+            return (ADRESH << 8)+ ADRESL;
+            break;
+        case 1:
+            ADCON0 = 0x07;
+            while(ADCON0bits.GODONE != 0)
+            {}
+            return (ADRESH << 8)+ ADRESL;
+            break;
+        case 2:
+            ADCON0 = 0x0B;
+            while(ADCON0bits.GODONE != 0)
+            {}
+            return (ADRESH << 8)+ ADRESL;
+            break;
+        case 3:
+            ADCON0 = 0x0F;
+            while(ADCON0bits.GODONE != 0)
+            {}
+            return (ADRESH << 8)+ ADRESL;
+            break;
+    }
+}
+void ADCConfig(void)
+{
+    TRISAbits.RA0 = 1;
+    TRISAbits.RA1 = 1;
+    TRISAbits.RA2 = 1;
+    TRISAbits.RA3 = 1;
+    ADCON0 = 0x01;  //Turning ON the A/D Converter
+    ADCON1 = 0x0B;  //Setting the AN0,AN1, AN2, AN3 as Analog Inputs and GPIO others.
+    ADCON2 = 0xAB;  //Left Justify, 12TAD, 64 TOSC
+
+}
+void ADCSetParam(char reg, char  cmd)
+{
+    switch(reg)
+    {
+        case 0:
+            ADCON0 = cmd;
+            break;
+        case 1:
+            ADCON1 = cmd;
+            break;
+        case 2:
+            ADCON2 = cmd;
+            break;
+    }
+}
+void analogWrite(char pin,unsigned int value)
+{
+    switch(pin)
+    {
+        case 4:
+            TRISC2 = 0;
+            if(value <1024)
+            {
+                value = ((float)value / 1023) * PWM_Max_Duty();
+                DC1B1 = value & 2;
+                DC1B0 = value & 1;
+                CCPR1L = value >> 2;
+            }
+            break;
+        case 3:
+            TRISC1 = 0;
+            if(value <1024)
+            {
+                value = ((float)value / 1023) * PWM_Max_Duty();
+                DC2B1 = value & 2;
+                DC2B0 = value & 1;
+                CCPR2L = value >> 2;
+            }
+            break;
+    }
+}
+void CCPConfig(void)
+{
+    PWM1_Init(1500);
+    PWM2_Init(1500);
+    PWM1_Start();
+    PWM2_Start();
+}
+void TMR0Config(void)
+{
+    //COnfiguracion para crear un desborde del registro del Timer 0 cada Milisegundo.
+    T0CON = 0x17;
+    INTCONbits.T0IE = 1;
+    //    T0CONbits.TMR0ON = 1;
+    //    T0CON = 0xC4;
+    //OpenTimer0(TIMER_INT_ON & T0_16BIT & T0_SOURCE_INT & T0_PS_1_256);
+    //WriteTimer0(0x0000); //OverLFow a 1 Segundo
+    TMR0L = 0x00;
+    TMR0H = 0x00;
+    INTCONbits.TMR0IF = 0;
+    ei();
+}
+double Time(void)
+{
+    return (millis * 1.4)+(TMR0 * 0.000021);
+}
+
+unsigned long milliseconds( unsigned long mil)
+{
+    
+}
+void __interrupt() TimerOverflow(void)
+{
+    if(INTCONbits.TMR0IF == 1)
+    {
+        /* Procedure */
+        millis++;
+        INTCONbits.TMR0IF = 0;
+        TMR0L = 0x00;
+        TMR0H = 0x00;
+        //WriteTimer0(0x0000); //  Overflow a 1 segundo
+    }
+}
+void TMR1Config(void)
+{
+    T1CON = 0xB6;
+}
+double PulseIn(char pin)
+{
+    double dtime;
+    double now = Time();
+    while(digitalRead(pin) == 1)
+    {
+        
+    }
+    dtime = Time() - now;
+    return dtime;
+}
+double Frequency(void)
+{
+    double now, lastTime, dtime, dData, freq;
+    int nowData, lastData;
+    double HighFrqK = 1.175;
+    lastTime = now;
+    now = Time();
+    T1CONbits.TMR1ON = 1;
+    delay(100);
+    T1CONbits.TMR1ON = 0;
+    nowData = TMR1L;
+    nowData += TMR1H * 256;
+    dData = lastData - nowData;
+    dtime = now - lastTime;
+    lastData = nowData;
+    freq = dData / dtime;
+    if(freq < 0)
+    {
+        return -HighFrqK * freq;
+    }
+    else
+    {
+           return HighFrqK * freq; 
+    }
+}
+
+void TMR2Config(void)
+{
+
+}
+void TMR3Config(void)
+{
+
+}
+void PORTAConfig(void)
+{
+    TRISA = 0x3F;
+}
+void PORTBConfig(void)
+{
+    TRISB = 0xFF;
+}
+void PORTCConfig(void)
+{
+    TRISC = 0xCF;
+}
+void PORTDConfig(void)
+{
+    TRISD = 0xFF;
+}
+void PORTEConfig(void)
+{
+    TRISEbits.RE0 = 1;
+    TRISEbits.RE1 = 1;
+    TRISEbits.RE2 = 1;
+}
+char PBRead(char pin)
+{
+    switch(pin)
+    {
+        case 0:
+            return PORTEbits.RE0;
+            break;
+        case 1:
+            return PORTEbits.RE1;
+            break;
+        case 2:
+            return PORTEbits.RE2;
+            break;
+    }
+}
+int PWM_Max_Duty(void)
+{
+    return (_XTAL_FREQ / (freq * TMR2PRESCALE));
+}
+void PWM1_Init(long fre)
+{
+    PR2 = (_XTAL_FREQ / (fre * 4 * TMR2PRESCALE)) - 1;
+    freq = fre;
+}
+void PWM2_Init(long fre)
+{
+    PR2 = (_XTAL_FREQ / (fre * 4 * TMR2PRESCALE)) - 1;
+    freq = fre;
+}
+void PWM1_Start(void)
+{
+    CCP1M3 = 1;
+    CCP1M2 = 1;
+#if TMR2PRESCALE == 1
+    T2CKPS0 = 0;
+    T2CKPS1 = 0;
+#elif TMR2PRESCALE == 4
+    T2CKPS0 = 1;
+    T2CKPS1 = 0;
+#elif TMR2PRESCALE == 16
+    T2CKPS0 = 1;
+    T2CKPS1 = 1;
+#endif
+    TMR2ON = 1;
+    
+}
+void PWM1_Stop(void)
+{
+    CCP1M3 = 0;
+    CCP1M2 = 0;
+}
+void PWM2_Start(void)
+{
+    CCP2M3 = 1;
+    CCP2M2 = 1;
+#if TMR2PRESCALE == 1
+    T2CKPS0 = 0;
+    T2CKPS1 = 0;
+#elif TMR2PRESCALE == 4
+    T2CKPS0 = 1;
+    T2CKPS1 = 0;
+#elif TMR2PRESCALE == 16
+    T2CKPS0 = 1;
+    T2CKPS1 = 1;
+#endif
+    TMR2ON = 1;
+    
+}
+void PWM2_Stop(void)
+{
+    CCP2M3 = 0;
+    CCP2M2 = 0;
+}
+
+
