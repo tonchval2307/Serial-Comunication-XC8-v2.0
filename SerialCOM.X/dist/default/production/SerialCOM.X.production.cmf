@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\CARLOS~1\AppData\Local\Temp\sagg.o
+$C:\Users\CARLOS~1\AppData\Local\Temp\sbqc.o
 idloc IDLOC 0 200000 200000 8 1
 init CODE 0 E E 4 1
 reset_vec CODE 0 0 0 4 1
@@ -210,20 +210,20 @@ FE text16 CODE >36:C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\co
 2B4 text0 CODE >17:C:\Users\Carlos_Tonche\Documents\SerialCOM.X\main.c
 2BC text0 CODE >18:C:\Users\Carlos_Tonche\Documents\SerialCOM.X\main.c
 2C0 text0 CODE >20:C:\Users\Carlos_Tonche\Documents\SerialCOM.X\main.c
-2C4 cinit CODE >997:C:\Users\CARLOS~1\AppData\Local\Temp\sagg.
-2C4 cinit CODE >999:C:\Users\CARLOS~1\AppData\Local\Temp\sagg.
-2C4 cinit CODE >1002:C:\Users\CARLOS~1\AppData\Local\Temp\sagg.
-2C4 cinit CODE >1014:C:\Users\CARLOS~1\AppData\Local\Temp\sagg.
-2C6 cinit CODE >1015:C:\Users\CARLOS~1\AppData\Local\Temp\sagg.
-2C8 cinit CODE >1016:C:\Users\CARLOS~1\AppData\Local\Temp\sagg.
-2CA cinit CODE >1017:C:\Users\CARLOS~1\AppData\Local\Temp\sagg.
-2CC cinit CODE >1023:C:\Users\CARLOS~1\AppData\Local\Temp\sagg.
-2CC cinit CODE >1025:C:\Users\CARLOS~1\AppData\Local\Temp\sagg.
-2CE cinit CODE >1026:C:\Users\CARLOS~1\AppData\Local\Temp\sagg.
-2D0 cinit CODE >1028:C:\Users\CARLOS~1\AppData\Local\Temp\sagg.
-2D2 cinit CODE >1029:C:\Users\CARLOS~1\AppData\Local\Temp\sagg.
-2D4 cinit CODE >1030:C:\Users\CARLOS~1\AppData\Local\Temp\sagg.
-2D6 cinit CODE >1031:C:\Users\CARLOS~1\AppData\Local\Temp\sagg.
+2C4 cinit CODE >1027:C:\Users\CARLOS~1\AppData\Local\Temp\sbqc.
+2C4 cinit CODE >1029:C:\Users\CARLOS~1\AppData\Local\Temp\sbqc.
+2C4 cinit CODE >1032:C:\Users\CARLOS~1\AppData\Local\Temp\sbqc.
+2C4 cinit CODE >1044:C:\Users\CARLOS~1\AppData\Local\Temp\sbqc.
+2C6 cinit CODE >1045:C:\Users\CARLOS~1\AppData\Local\Temp\sbqc.
+2C8 cinit CODE >1046:C:\Users\CARLOS~1\AppData\Local\Temp\sbqc.
+2CA cinit CODE >1047:C:\Users\CARLOS~1\AppData\Local\Temp\sbqc.
+2CC cinit CODE >1053:C:\Users\CARLOS~1\AppData\Local\Temp\sbqc.
+2CC cinit CODE >1055:C:\Users\CARLOS~1\AppData\Local\Temp\sbqc.
+2CE cinit CODE >1056:C:\Users\CARLOS~1\AppData\Local\Temp\sbqc.
+2D0 cinit CODE >1058:C:\Users\CARLOS~1\AppData\Local\Temp\sbqc.
+2D2 cinit CODE >1059:C:\Users\CARLOS~1\AppData\Local\Temp\sbqc.
+2D4 cinit CODE >1060:C:\Users\CARLOS~1\AppData\Local\Temp\sbqc.
+2D6 cinit CODE >1061:C:\Users\CARLOS~1\AppData\Local\Temp\sbqc.
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -245,7 +245,7 @@ __end_of_TimerOverflow 282 0 CODE 0 intcode_body dist/default/production\SerialC
 __size_of_PORTDConfig 0 0 ABS 0 - dist/default/production\SerialCOM.X.production.o
 __Hibigdata 0 0 CODE 0 ibigdata dist/default/production\SerialCOM.X.production.o
 _PWM1_Init 1B4 0 CODE 0 text15 dist/default/production\SerialCOM.X.production.o
-__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\CARLOS~1\AppData\Local\Temp\sagg.o
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\CARLOS~1\AppData\Local\Temp\sbqc.o
 __Heeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\SerialCOM.X.production.o
 _PWM2_Init 146 0 CODE 0 text13 dist/default/production\SerialCOM.X.production.o
 __CFG_MCLRE$ON 0 0 ABS 0 - dist/default/production\SerialCOM.X.production.o
@@ -253,13 +253,22 @@ _T1CONbits FCD 0 ABS 0 - dist/default/production\SerialCOM.X.production.o
 __Lsmallconst 0 0 SMALLCONST 0 smallconst dist/default/production\SerialCOM.X.production.o
 _PORTCConfig 32A 0 CODE 0 text8 dist/default/production\SerialCOM.X.production.o
 __end_of_PORTEConfig 324 0 CODE 0 text6 dist/default/production\SerialCOM.X.production.o
+_BRGH 7D62 0 ABS 0 - dist/default/production\SerialCOM.X.production.o
+_CREN 7D5C 0 ABS 0 - dist/default/production\SerialCOM.X.production.o
+_FERR 7D5A 0 ABS 0 - dist/default/production\SerialCOM.X.production.o
+_OERR 7D59 0 ABS 0 - dist/default/production\SerialCOM.X.production.o
+_RCIF 7CF5 0 ABS 0 - dist/default/production\SerialCOM.X.production.o
+_SPEN 7D5F 0 ABS 0 - dist/default/production\SerialCOM.X.production.o
+_SYNC 7D64 0 ABS 0 - dist/default/production\SerialCOM.X.production.o
 _TMR0 FD6 0 ABS 0 - dist/default/production\SerialCOM.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\CARLOS~1\AppData\Local\Temp\sagg.o
+_TRMT 7D61 0 ABS 0 - dist/default/production\SerialCOM.X.production.o
+_TXEN 7D65 0 ABS 0 - dist/default/production\SerialCOM.X.production.o
+___sp 0 0 STACK 2 stack C:\Users\CARLOS~1\AppData\Local\Temp\sbqc.o
 _freq 17 0 COMRAM 1 nvCOMRAM dist/default/production\SerialCOM.X.production.o
 _loop 340 0 CODE 0 text2 dist/default/production\SerialCOM.X.production.o
 _main 2A8 0 CODE 0 text0 dist/default/production\SerialCOM.X.production.o
 btemp 1F 0 COMRAM 1 temp dist/default/production\SerialCOM.X.production.o
-start E 0 CODE 0 init C:\Users\CARLOS~1\AppData\Local\Temp\sagg.o
+start E 0 CODE 0 init C:\Users\CARLOS~1\AppData\Local\Temp\sbqc.o
 __size_of___aldiv 0 0 ABS 0 - dist/default/production\SerialCOM.X.production.o
 __size_of_loop 0 0 ABS 0 - dist/default/production\SerialCOM.X.production.o
 __size_of_main 0 0 ABS 0 - dist/default/production\SerialCOM.X.production.o
@@ -271,11 +280,11 @@ ttemp6 23 0 COMRAM 1 temp dist/default/production\SerialCOM.X.production.o
 ttemp7 27 0 COMRAM 1 temp dist/default/production\SerialCOM.X.production.o
 __LnvCOMRAM 0 0 ABS 0 nvCOMRAM dist/default/production\SerialCOM.X.production.o
 __size_of_PORTAConfig 0 0 ABS 0 - dist/default/production\SerialCOM.X.production.o
-__accesstop 60 0 ABS 0 - C:\Users\CARLOS~1\AppData\Local\Temp\sagg.o
-intlevel0 0 0 CODE 0 text C:\Users\CARLOS~1\AppData\Local\Temp\sagg.o
-intlevel1 0 0 CODE 0 text C:\Users\CARLOS~1\AppData\Local\Temp\sagg.o
-intlevel2 0 0 CODE 0 text C:\Users\CARLOS~1\AppData\Local\Temp\sagg.o
-intlevel3 0 0 CODE 0 text C:\Users\CARLOS~1\AppData\Local\Temp\sagg.o
+__accesstop 60 0 ABS 0 - C:\Users\CARLOS~1\AppData\Local\Temp\sbqc.o
+intlevel0 0 0 CODE 0 text C:\Users\CARLOS~1\AppData\Local\Temp\sbqc.o
+intlevel1 0 0 CODE 0 text C:\Users\CARLOS~1\AppData\Local\Temp\sbqc.o
+intlevel2 0 0 CODE 0 text C:\Users\CARLOS~1\AppData\Local\Temp\sbqc.o
+intlevel3 0 0 CODE 0 text C:\Users\CARLOS~1\AppData\Local\Temp\sbqc.o
 __LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\SerialCOM.X.production.o
 __CFG_USBDIV$1 0 0 ABS 0 - dist/default/production\SerialCOM.X.production.o
 ___aldiv@divisor 5 0 COMRAM 1 cstackCOMRAM dist/default/production\SerialCOM.X.production.o
@@ -295,8 +304,8 @@ _ADCON1 FC1 0 ABS 0 - dist/default/production\SerialCOM.X.production.o
 _ADCON2 FC0 0 ABS 0 - dist/default/production\SerialCOM.X.production.o
 _ADRESH FC4 0 ABS 0 - dist/default/production\SerialCOM.X.production.o
 _ADRESL FC3 0 ABS 0 - dist/default/production\SerialCOM.X.production.o
-___inthi_sp 0 0 STACK 2 stack C:\Users\CARLOS~1\AppData\Local\Temp\sagg.o
-___intlo_sp 0 0 STACK 2 stack C:\Users\CARLOS~1\AppData\Local\Temp\sagg.o
+___inthi_sp 0 0 STACK 2 stack C:\Users\CARLOS~1\AppData\Local\Temp\sbqc.o
+___intlo_sp 0 0 STACK 2 stack C:\Users\CARLOS~1\AppData\Local\Temp\sbqc.o
 _CCP1M2 7DEA 0 ABS 0 - dist/default/production\SerialCOM.X.production.o
 _CCP1M3 7DEB 0 ABS 0 - dist/default/production\SerialCOM.X.production.o
 _CCP2M2 7DD2 0 ABS 0 - dist/default/production\SerialCOM.X.production.o
@@ -330,6 +339,8 @@ _PORTDConfig 336 0 CODE 0 text7 dist/default/production\SerialCOM.X.production.o
 _TMR2ON 7E52 0 ABS 0 - dist/default/production\SerialCOM.X.production.o
 _TRISC1 7CA1 0 ABS 0 - dist/default/production\SerialCOM.X.production.o
 _TRISC2 7CA2 0 ABS 0 - dist/default/production\SerialCOM.X.production.o
+_TRISC6 7CA6 0 ABS 0 - dist/default/production\SerialCOM.X.production.o
+_TRISC7 7CA7 0 ABS 0 - dist/default/production\SerialCOM.X.production.o
 __end_of_PWM2_Start 310 0 CODE 0 text12 dist/default/production\SerialCOM.X.production.o
 __end_of_configuracionInicial 2A8 0 CODE 0 text3 dist/default/production\SerialCOM.X.production.o
 __size_of_PWM1_Start 0 0 ABS 0 - dist/default/production\SerialCOM.X.production.o
@@ -362,7 +373,7 @@ __Htext9 0 0 ABS 0 text9 dist/default/production\SerialCOM.X.production.o
 PWM1_Init@fre F 0 COMRAM 1 cstackCOMRAM dist/default/production\SerialCOM.X.production.o
 __Hbigbss 0 0 BIGRAM 1 bigbss dist/default/production\SerialCOM.X.production.o
 __Hbigram 0 0 ABS 0 bigram dist/default/production\SerialCOM.X.production.o
-__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\CARLOS~1\AppData\Local\Temp\sagg.o
+__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\CARLOS~1\AppData\Local\Temp\sbqc.o
 __size_of_PORTBConfig 0 0 ABS 0 - dist/default/production\SerialCOM.X.production.o
 PWM2_Init@fre F 0 COMRAM 1 cstackCOMRAM dist/default/production\SerialCOM.X.production.o
 __Hcomram 0 0 ABS 0 comram dist/default/production\SerialCOM.X.production.o
@@ -475,8 +486,8 @@ _PORTEConfig 31C 0 CODE 0 text6 dist/default/production\SerialCOM.X.production.o
 __Lfardata 0 0 FARRAM 0 fardata dist/default/production\SerialCOM.X.production.o
 __end_of_CCPConfig 254 0 CODE 0 text11 dist/default/production\SerialCOM.X.production.o
 __CFG_CCP2MX$ON 0 0 ABS 0 - dist/default/production\SerialCOM.X.production.o
-stackhi 7FF 0 ABS 0 - C:\Users\CARLOS~1\AppData\Local\Temp\sagg.o
-stacklo 60 0 ABS 0 - C:\Users\CARLOS~1\AppData\Local\Temp\sagg.o
+stackhi 7FF 0 ABS 0 - C:\Users\CARLOS~1\AppData\Local\Temp\sbqc.o
+stacklo 60 0 ABS 0 - C:\Users\CARLOS~1\AppData\Local\Temp\sbqc.o
 __size_of_CCPConfig 0 0 ABS 0 - dist/default/production\SerialCOM.X.production.o
 __Lintcode 8 0 CODE 0 intcode dist/default/production\SerialCOM.X.production.o
 __Lintret 0 0 ABS 0 intret dist/default/production\SerialCOM.X.production.o
@@ -526,7 +537,7 @@ __Ltext14 0 0 ABS 0 text14 dist/default/production\SerialCOM.X.production.o
 __Ltext15 0 0 ABS 0 text15 dist/default/production\SerialCOM.X.production.o
 __Ltext16 0 0 ABS 0 text16 dist/default/production\SerialCOM.X.production.o
 __Ltext17 0 0 ABS 0 text17 dist/default/production\SerialCOM.X.production.o
-__ramtop 800 0 RAM 0 ramtop C:\Users\CARLOS~1\AppData\Local\Temp\sagg.o
+__ramtop 800 0 RAM 0 ramtop C:\Users\CARLOS~1\AppData\Local\Temp\sbqc.o
 ___aldiv@dividend 1 0 COMRAM 1 cstackCOMRAM dist/default/production\SerialCOM.X.production.o
 __Lpowerup E 0 CODE 0 powerup dist/default/production\SerialCOM.X.production.o
 __Leeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\SerialCOM.X.production.o
@@ -561,6 +572,9 @@ _DC1B0 7DEC 0 ABS 0 - dist/default/production\SerialCOM.X.production.o
 _DC1B1 7DED 0 ABS 0 - dist/default/production\SerialCOM.X.production.o
 _DC2B0 7DD4 0 ABS 0 - dist/default/production\SerialCOM.X.production.o
 _DC2B1 7DD5 0 ABS 0 - dist/default/production\SerialCOM.X.production.o
+_RCIDL 7DC6 0 ABS 0 - dist/default/production\SerialCOM.X.production.o
+_RCREG FAE 0 ABS 0 - dist/default/production\SerialCOM.X.production.o
+_SPBRG FAF 0 ABS 0 - dist/default/production\SerialCOM.X.production.o
 _T0CON FD5 0 ABS 0 - dist/default/production\SerialCOM.X.production.o
 _T1CON FCD 0 ABS 0 - dist/default/production\SerialCOM.X.production.o
 _TMR0H FD7 0 ABS 0 - dist/default/production\SerialCOM.X.production.o
@@ -571,6 +585,7 @@ _TRISA F92 0 ABS 0 - dist/default/production\SerialCOM.X.production.o
 _TRISB F93 0 ABS 0 - dist/default/production\SerialCOM.X.production.o
 _TRISC F94 0 ABS 0 - dist/default/production\SerialCOM.X.production.o
 _TRISD F95 0 ABS 0 - dist/default/production\SerialCOM.X.production.o
+_TXREG FAD 0 ABS 0 - dist/default/production\SerialCOM.X.production.o
 __end_of_setup 340 0 CODE 0 text1 dist/default/production\SerialCOM.X.production.o
 __CFG_CP0$OFF 0 0 ABS 0 - dist/default/production\SerialCOM.X.production.o
 __CFG_CP1$OFF 0 0 ABS 0 - dist/default/production\SerialCOM.X.production.o

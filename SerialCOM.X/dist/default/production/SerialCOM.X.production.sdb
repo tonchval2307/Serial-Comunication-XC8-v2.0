@@ -81,6 +81,10 @@
 [v _PWM1_Start PWM1_Start `(v  1 e 1 0 ]
 "521
 [v _PWM2_Start PWM2_Start `(v  1 e 1 0 ]
+"597
+[v _SerialWrite SerialWrite `(v  1 e 1 0 ]
+"616
+[v _SerialRead SerialRead `(uc  1 e 1 0 ]
 [s S90 . 1 `uc 1 RA0 1 0 :1:0 
 `uc 1 RA1 1 0 :1:1 
 `uc 1 RA2 1 0 :1:2 
@@ -373,6 +377,12 @@
 ]
 [u S819 . 1 `S811 1 . 1 0 `S815 1 . 1 0 ]
 [v _TRISEbits TRISEbits `VES819  1 e 1 @3990 ]
+"5402
+[v _TXREG TXREG `VEuc  1 e 1 @4013 ]
+"5414
+[v _RCREG RCREG `VEuc  1 e 1 @4014 ]
+"5426
+[v _SPBRG SPBRG `VEuc  1 e 1 @4015 ]
 "6313
 [v _CCPR2L CCPR2L `VEuc  1 e 1 @4027 ]
 "6496
@@ -485,6 +495,8 @@
 ]
 [u S724 . 1 `S702 1 . 1 0 `S711 1 . 1 0 `S720 1 . 1 0 ]
 [v _INTCONbits INTCONbits `VES724  1 e 1 @4082 ]
+"9021
+[v _BRGH BRGH `VEb  1 e 0 @32098 ]
 "9078
 [v _CCP1M2 CCP1M2 `VEb  1 e 0 @32234 ]
 "9081
@@ -493,6 +505,8 @@
 [v _CCP2M2 CCP2M2 `VEb  1 e 0 @32210 ]
 "9108
 [v _CCP2M3 CCP2M3 `VEb  1 e 0 @32211 ]
+"9201
+[v _CREN CREN `VEb  1 e 0 @32092 ]
 "9255
 [v _DC1B0 DC1B0 `VEb  1 e 0 @32236 ]
 "9258
@@ -501,6 +515,18 @@
 [v _DC2B0 DC2B0 `VEb  1 e 0 @32212 ]
 "9264
 [v _DC2B1 DC2B1 `VEb  1 e 0 @32213 ]
+"9693
+[v _FERR FERR `VEb  1 e 0 @32090 ]
+"10176
+[v _OERR OERR `VEb  1 e 0 @32089 ]
+"10437
+[v _RCIDL RCIDL `VEb  1 e 0 @32198 ]
+"10443
+[v _RCIF RCIF `VEb  1 e 0 @31989 ]
+"10584
+[v _SPEN SPEN `VEb  1 e 0 @32095 ]
+"10710
+[v _SYNC SYNC `VEb  1 e 0 @32100 ]
 "10773
 [v _T2CKPS0 T2CKPS0 `VEb  1 e 0 @32336 ]
 "10776
@@ -511,6 +537,14 @@
 [v _TRISC1 TRISC1 `VEb  1 e 0 @31905 ]
 "10932
 [v _TRISC2 TRISC2 `VEb  1 e 0 @31906 ]
+"10935
+[v _TRISC6 TRISC6 `VEb  1 e 0 @31910 ]
+"10938
+[v _TRISC7 TRISC7 `VEb  1 e 0 @31911 ]
+"10974
+[v _TRMT TRMT `VEb  1 e 0 @32097 ]
+"11034
+[v _TXEN TXEN `VEb  1 e 0 @32101 ]
 "8 C:\Users\Carlos_Tonche\Documents\SerialCOM.X\main.c
 [v _millis millis `ul  1 e 4 0 ]
 "9

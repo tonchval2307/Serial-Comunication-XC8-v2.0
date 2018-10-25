@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=C:\Program Files (x86)\Microchip\xc8\v2.00\pic\dat\en_msgs.txt \
   -cs -h+dist/default/production\SerialCOM.X.production.sym \
   --cmf=dist/default/production\SerialCOM.X.production.cmf -z -Q18F4550 \
-  -oC:\Users\CARLOS~1\AppData\Local\Temp\sagg.2 --defsym=__MPLAB_BUILD=1 \
+  -oC:\Users\CARLOS~1\AppData\Local\Temp\sbqc.2 --defsym=__MPLAB_BUILD=1 \
   -Mdist/default/production/SerialCOM.X.production.map -E1 -ver=XC8 \
   --acfsm=1493 -ASTACK=060h-07ffh -pstack=STACK -ACODE=00h-07FFFh \
   -ACONST=00h-07FFFh -ASMALLCONST=0800h-08FFhx120 \
@@ -23,7 +23,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\CARLOS~1\AppData\Local\Temp\sagg.o \
+  C:\Users\CARLOS~1\AppData\Local\Temp\sbqc.o \
   dist/default/production\SerialCOM.X.production.o 
 
 Object code version is 3.11
@@ -36,7 +36,7 @@ Call graph: (short form)
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\CARLOS~1\AppData\Local\Temp\sagg.o
+C:\Users\CARLOS~1\AppData\Local\Temp\sbqc.o
                 init                                  E        E        4        4       0
                 reset_vec                             0        0        4        0       0
                 idloc                            200000   200000        8   200000       0
@@ -189,6 +189,7 @@ _ADCON1                        (abs)        000FC1
 _ADCON2                        (abs)        000FC0
 _ADRESH                        (abs)        000FC4
 _ADRESL                        (abs)        000FC3
+_BRGH                          (abs)        007D62
 _CCP1M2                        (abs)        007DEA
 _CCP1M3                        (abs)        007DEB
 _CCP2M2                        (abs)        007DD2
@@ -196,15 +197,18 @@ _CCP2M3                        (abs)        007DD3
 _CCPConfig                     text11       000222
 _CCPR1L                        (abs)        000FBE
 _CCPR2L                        (abs)        000FBB
+_CREN                          (abs)        007D5C
 _DC1B0                         (abs)        007DEC
 _DC1B1                         (abs)        007DED
 _DC2B0                         (abs)        007DD4
 _DC2B1                         (abs)        007DD5
+_FERR                          (abs)        007D5A
 _INTCONbits                    (abs)        000FF2
 _LATAbits                      (abs)        000F89
 _LATBbits                      (abs)        000F8A
 _LATCbits                      (abs)        000F8B
 _LATDbits                      (abs)        000F8C
+_OERR                          (abs)        007D59
 _PORTAConfig                   text10       000330
 _PORTAbits                     (abs)        000F80
 _PORTBConfig                   text9        00033A
@@ -220,6 +224,12 @@ _PWM1_Init                     text15       0001B4
 _PWM1_Start                    text14       000310
 _PWM2_Init                     text13       000146
 _PWM2_Start                    text12       000304
+_RCIDL                         (abs)        007DC6
+_RCIF                          (abs)        007CF5
+_RCREG                         (abs)        000FAE
+_SPBRG                         (abs)        000FAF
+_SPEN                          (abs)        007D5F
+_SYNC                          (abs)        007D64
 _T0CON                         (abs)        000FD5
 _T1CON                         (abs)        000FCD
 _T1CONbits                     (abs)        000FCD
@@ -240,10 +250,15 @@ _TRISBbits                     (abs)        000F93
 _TRISC                         (abs)        000F94
 _TRISC1                        (abs)        007CA1
 _TRISC2                        (abs)        007CA2
+_TRISC6                        (abs)        007CA6
+_TRISC7                        (abs)        007CA7
 _TRISCbits                     (abs)        000F94
 _TRISD                         (abs)        000F95
 _TRISDbits                     (abs)        000F95
 _TRISEbits                     (abs)        000F96
+_TRMT                          (abs)        007D61
+_TXEN                          (abs)        007D65
+_TXREG                         (abs)        000FAD
 _TimerOverflow                 intcode      000008
 __CFG_BOR$OFF                  (abs)        000000
 __CFG_BORV$3                   (abs)        000000
@@ -556,7 +571,7 @@ FUNCTION INFORMATION:
  Auto vars:     Size  Location     Type
 		None
  Return value:  Size  Location     Type
-                  2  144[None  ] int 
+                  2  174[None  ] int 
  Registers used:
 		wreg, status,2, status,0, cstack
  Tracked objects:
@@ -1072,6 +1087,7 @@ Total ram usage:       14 bytes
 		_PWM1_Init
 		_PWM2_Init
 		_PWM_Max_Duty
+		_SerialBegin
  This function uses a non-reentrant model
 
 

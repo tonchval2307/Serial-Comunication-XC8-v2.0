@@ -6542,3 +6542,90 @@ void PWM2_Stop(void)
     CCP2M3 = 0;
     CCP2M2 = 0;
 }
+double rescale(double x, double in_min, double in_max, double out_min, double out_max)
+{
+    return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+}
+
+char SerialBegin(const long int baudRate)
+{
+    unsigned int x;
+    x = ((24000000 / baudRate)/16) - 1;
+    if(x > 255)
+    {
+        x = ((24000000 / baudRate)/16) - 1;
+        BRGH = 1;
+    }
+    if(x < 256)
+    {
+        SPBRG = x;
+        SYNC = 0;
+        SPEN = 1;
+        TRISC6 = 1;
+        TRISC7 = 1;
+        CREN = 1;
+        TXEN = 1;
+        return 1;
+    }
+    return 0;
+}
+char TxRegisterFull(void)
+{
+    return TRMT;
+}
+char SerialErrors(void)
+{
+    if((FERR == 1) && (FERR || OERR))
+    {
+        return 1;
+    }
+    else if((OERR == 1) && (FERR || OERR))
+    {
+        return 2;
+    }
+    else if(OERR && FERR)
+    {
+        return 3;
+    }
+    else
+    {
+        return 0;
+    }
+}
+char RxIdle(void)
+{
+    return RCIDL;
+}
+void SerialWrite(int dataWrite)
+{
+    while(!TRMT);
+    TXREG = dataWrite;
+}
+
+char SerialWriteText(char *dataText)
+{
+    unsigned int i;
+    for(i=0;dataText[i]!='\0';i++)
+    {
+       SerialWrite(dataText[i]);
+    }
+}
+char SerialAvailable(void)
+{
+    return RCIF;
+}
+
+char SerialRead(void)
+{
+    while(!RCIF);
+    return RCREG;
+}
+
+void SerialReadText(char *Output, unsigned int lenght)
+{
+    unsigned int i;
+    for(i=0;i<lenght;i++)
+    {
+        Output[i] = SerialRead();
+    }
+}

@@ -490,6 +490,51 @@ Version 4.0 HI-TECH Software Intermediate Code
 "9105
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic18f4550.h: 9105: extern volatile __bit CCP2M2 __attribute__((address(0x7DD2)));
 [v _CCP2M2 `Vb ~T0 @X0 0 e@32210 ]
+"9021
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic18f4550.h: 9021: extern volatile __bit BRGH __attribute__((address(0x7D62)));
+[v _BRGH `Vb ~T0 @X0 0 e@32098 ]
+"5426
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic18f4550.h: 5426: extern volatile unsigned char SPBRG __attribute__((address(0xFAF)));
+[v _SPBRG `Vuc ~T0 @X0 0 e@4015 ]
+"10710
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic18f4550.h: 10710: extern volatile __bit SYNC __attribute__((address(0x7D64)));
+[v _SYNC `Vb ~T0 @X0 0 e@32100 ]
+"10584
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic18f4550.h: 10584: extern volatile __bit SPEN __attribute__((address(0x7D5F)));
+[v _SPEN `Vb ~T0 @X0 0 e@32095 ]
+"10935
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic18f4550.h: 10935: extern volatile __bit TRISC6 __attribute__((address(0x7CA6)));
+[v _TRISC6 `Vb ~T0 @X0 0 e@31910 ]
+"10938
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic18f4550.h: 10938: extern volatile __bit TRISC7 __attribute__((address(0x7CA7)));
+[v _TRISC7 `Vb ~T0 @X0 0 e@31911 ]
+"9201
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic18f4550.h: 9201: extern volatile __bit CREN __attribute__((address(0x7D5C)));
+[v _CREN `Vb ~T0 @X0 0 e@32092 ]
+"11034
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic18f4550.h: 11034: extern volatile __bit TXEN __attribute__((address(0x7D65)));
+[v _TXEN `Vb ~T0 @X0 0 e@32101 ]
+"10974
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic18f4550.h: 10974: extern volatile __bit TRMT __attribute__((address(0x7D61)));
+[v _TRMT `Vb ~T0 @X0 0 e@32097 ]
+"9693
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic18f4550.h: 9693: extern volatile __bit FERR __attribute__((address(0x7D5A)));
+[v _FERR `Vb ~T0 @X0 0 e@32090 ]
+"10176
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic18f4550.h: 10176: extern volatile __bit OERR __attribute__((address(0x7D59)));
+[v _OERR `Vb ~T0 @X0 0 e@32089 ]
+"10437
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic18f4550.h: 10437: extern volatile __bit RCIDL __attribute__((address(0x7DC6)));
+[v _RCIDL `Vb ~T0 @X0 0 e@32198 ]
+"5402
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic18f4550.h: 5402: extern volatile unsigned char TXREG __attribute__((address(0xFAD)));
+[v _TXREG `Vuc ~T0 @X0 0 e@4013 ]
+"10443
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic18f4550.h: 10443: extern volatile __bit RCIF __attribute__((address(0x7CF5)));
+[v _RCIF `Vb ~T0 @X0 0 e@31989 ]
+"5414
+[; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic18f4550.h: 5414: extern volatile unsigned char RCREG __attribute__((address(0xFAE)));
+[v _RCREG `Vuc ~T0 @X0 0 e@4014 ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic18f4550.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic18f4550.h: 54: __asm("SPPDATA equ 0F62h");
 [; <" SPPDATA equ 0F62h ;# ">
@@ -2948,4 +2993,358 @@ Version 4.0 HI-TECH Software Intermediate Code
 "542
 [; ;main.c: 542: }
 [e :UE 523 ]
+}
+"543
+[; ;main.c: 543: double rescale(double x, double in_min, double in_max, double out_min, double out_max)
+[v _rescale `(d ~T0 @X0 1 ef5`d`d`d`d`d ]
+"544
+[; ;main.c: 544: {
+{
+[e :U _rescale ]
+"543
+[; ;main.c: 543: double rescale(double x, double in_min, double in_max, double out_min, double out_max)
+[v _x `d ~T0 @X0 1 r1 ]
+[v _in_min `d ~T0 @X0 1 r2 ]
+[v _in_max `d ~T0 @X0 1 r3 ]
+[v _out_min `d ~T0 @X0 1 r4 ]
+[v _out_max `d ~T0 @X0 1 r5 ]
+"544
+[; ;main.c: 544: {
+[f ]
+"545
+[; ;main.c: 545:     return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+[e ) + / * - _x _in_min - _out_max _out_min - _in_max _in_min _out_min ]
+[e $UE 524  ]
+"546
+[; ;main.c: 546: }
+[e :UE 524 ]
+}
+"548
+[; ;main.c: 548: char SerialBegin(const long int baudRate)
+[v _SerialBegin `(uc ~T0 @X0 1 ef1`Cl ]
+"549
+[; ;main.c: 549: {
+{
+[e :U _SerialBegin ]
+"548
+[; ;main.c: 548: char SerialBegin(const long int baudRate)
+[v _baudRate `Cl ~T0 @X0 1 r1 ]
+"549
+[; ;main.c: 549: {
+[f ]
+"550
+[; ;main.c: 550:     unsigned int x;
+[v _x `ui ~T0 @X0 1 a ]
+"551
+[; ;main.c: 551:     x = ((24000000 / baudRate)/16) - 1;
+[e = _x -> - / / -> 24000000 `l _baudRate -> -> 16 `i `l -> -> 1 `i `l `ui ]
+"552
+[; ;main.c: 552:     if(x > 255)
+[e $ ! > _x -> -> 255 `i `ui 526  ]
+"553
+[; ;main.c: 553:     {
+{
+"554
+[; ;main.c: 554:         x = ((24000000 / baudRate)/16) - 1;
+[e = _x -> - / / -> 24000000 `l _baudRate -> -> 16 `i `l -> -> 1 `i `l `ui ]
+"555
+[; ;main.c: 555:         BRGH = 1;
+[e = _BRGH -> -> 1 `i `b ]
+"556
+[; ;main.c: 556:     }
+}
+[e :U 526 ]
+"557
+[; ;main.c: 557:     if(x < 256)
+[e $ ! < _x -> -> 256 `i `ui 527  ]
+"558
+[; ;main.c: 558:     {
+{
+"559
+[; ;main.c: 559:         SPBRG = x;
+[e = _SPBRG -> _x `uc ]
+"560
+[; ;main.c: 560:         SYNC = 0;
+[e = _SYNC -> -> 0 `i `b ]
+"561
+[; ;main.c: 561:         SPEN = 1;
+[e = _SPEN -> -> 1 `i `b ]
+"562
+[; ;main.c: 562:         TRISC6 = 1;
+[e = _TRISC6 -> -> 1 `i `b ]
+"563
+[; ;main.c: 563:         TRISC7 = 1;
+[e = _TRISC7 -> -> 1 `i `b ]
+"564
+[; ;main.c: 564:         CREN = 1;
+[e = _CREN -> -> 1 `i `b ]
+"565
+[; ;main.c: 565:         TXEN = 1;
+[e = _TXEN -> -> 1 `i `b ]
+"566
+[; ;main.c: 566:         return 1;
+[e ) -> -> 1 `i `uc ]
+[e $UE 525  ]
+"567
+[; ;main.c: 567:     }
+}
+[e :U 527 ]
+"568
+[; ;main.c: 568:     return 0;
+[e ) -> -> 0 `i `uc ]
+[e $UE 525  ]
+"569
+[; ;main.c: 569: }
+[e :UE 525 ]
+}
+"570
+[; ;main.c: 570: char TxRegisterFull(void)
+[v _TxRegisterFull `(uc ~T0 @X0 1 ef ]
+"571
+[; ;main.c: 571: {
+{
+[e :U _TxRegisterFull ]
+[f ]
+"572
+[; ;main.c: 572:     return TRMT;
+[e ) -> _TRMT `uc ]
+[e $UE 528  ]
+"573
+[; ;main.c: 573: }
+[e :UE 528 ]
+}
+"574
+[; ;main.c: 574: char SerialErrors(void)
+[v _SerialErrors `(uc ~T0 @X0 1 ef ]
+"575
+[; ;main.c: 575: {
+{
+[e :U _SerialErrors ]
+[f ]
+"576
+[; ;main.c: 576:     if((FERR == 1) && (FERR || OERR))
+[e $ ! && == -> _FERR `i -> 1 `i || _FERR _OERR 530  ]
+"577
+[; ;main.c: 577:     {
+{
+"578
+[; ;main.c: 578:         return 1;
+[e ) -> -> 1 `i `uc ]
+[e $UE 529  ]
+"579
+[; ;main.c: 579:     }
+}
+[e $U 531  ]
+"580
+[; ;main.c: 580:     else if((OERR == 1) && (FERR || OERR))
+[e :U 530 ]
+[e $ ! && == -> _OERR `i -> 1 `i || _FERR _OERR 532  ]
+"581
+[; ;main.c: 581:     {
+{
+"582
+[; ;main.c: 582:         return 2;
+[e ) -> -> 2 `i `uc ]
+[e $UE 529  ]
+"583
+[; ;main.c: 583:     }
+}
+[e $U 533  ]
+"584
+[; ;main.c: 584:     else if(OERR && FERR)
+[e :U 532 ]
+[e $ ! && _OERR _FERR 534  ]
+"585
+[; ;main.c: 585:     {
+{
+"586
+[; ;main.c: 586:         return 3;
+[e ) -> -> 3 `i `uc ]
+[e $UE 529  ]
+"587
+[; ;main.c: 587:     }
+}
+[e $U 535  ]
+"588
+[; ;main.c: 588:     else
+[e :U 534 ]
+"589
+[; ;main.c: 589:     {
+{
+"590
+[; ;main.c: 590:         return 0;
+[e ) -> -> 0 `i `uc ]
+[e $UE 529  ]
+"591
+[; ;main.c: 591:     }
+}
+[e :U 535 ]
+[e :U 533 ]
+[e :U 531 ]
+"592
+[; ;main.c: 592: }
+[e :UE 529 ]
+}
+"593
+[; ;main.c: 593: char RxIdle(void)
+[v _RxIdle `(uc ~T0 @X0 1 ef ]
+"594
+[; ;main.c: 594: {
+{
+[e :U _RxIdle ]
+[f ]
+"595
+[; ;main.c: 595:     return RCIDL;
+[e ) -> _RCIDL `uc ]
+[e $UE 536  ]
+"596
+[; ;main.c: 596: }
+[e :UE 536 ]
+}
+"597
+[; ;main.c: 597: void SerialWrite(int dataWrite)
+[v _SerialWrite `(v ~T0 @X0 1 ef1`i ]
+"598
+[; ;main.c: 598: {
+{
+[e :U _SerialWrite ]
+"597
+[; ;main.c: 597: void SerialWrite(int dataWrite)
+[v _dataWrite `i ~T0 @X0 1 r1 ]
+"598
+[; ;main.c: 598: {
+[f ]
+"599
+[; ;main.c: 599:     while(!TRMT);
+[e $U 538  ]
+[e :U 539 ]
+[e :U 538 ]
+[e $ ! _TRMT 539  ]
+[e :U 540 ]
+"600
+[; ;main.c: 600:     TXREG = dataWrite;
+[e = _TXREG -> _dataWrite `uc ]
+"601
+[; ;main.c: 601: }
+[e :UE 537 ]
+}
+"603
+[; ;main.c: 603: char SerialWriteText(char *dataText)
+[v _SerialWriteText `(uc ~T0 @X0 1 ef1`*uc ]
+"604
+[; ;main.c: 604: {
+{
+[e :U _SerialWriteText ]
+"603
+[; ;main.c: 603: char SerialWriteText(char *dataText)
+[v _dataText `*uc ~T0 @X0 1 r1 ]
+"604
+[; ;main.c: 604: {
+[f ]
+"605
+[; ;main.c: 605:     unsigned int i;
+[v _i `ui ~T0 @X0 1 a ]
+"606
+[; ;main.c: 606:     for(i=0;dataText[i]!='\0';i++)
+{
+[e = _i -> -> 0 `i `ui ]
+[e $U 545  ]
+[e :U 542 ]
+"607
+[; ;main.c: 607:     {
+{
+"608
+[; ;main.c: 608:        SerialWrite(dataText[i]);
+[e ( _SerialWrite (1 -> *U + _dataText * -> _i `ux -> -> # *U _dataText `ui `ux `i ]
+"609
+[; ;main.c: 609:     }
+}
+[e ++ _i -> -> 1 `i `ui ]
+[e :U 545 ]
+[e $ != -> *U + _dataText * -> _i `ux -> -> # *U _dataText `ui `ux `ui -> 0 `ui 542  ]
+[e :U 543 ]
+}
+"610
+[; ;main.c: 610: }
+[e :UE 541 ]
+}
+"611
+[; ;main.c: 611: char SerialAvailable(void)
+[v _SerialAvailable `(uc ~T0 @X0 1 ef ]
+"612
+[; ;main.c: 612: {
+{
+[e :U _SerialAvailable ]
+[f ]
+"613
+[; ;main.c: 613:     return RCIF;
+[e ) -> _RCIF `uc ]
+[e $UE 546  ]
+"614
+[; ;main.c: 614: }
+[e :UE 546 ]
+}
+"616
+[; ;main.c: 616: char SerialRead(void)
+[v _SerialRead `(uc ~T0 @X0 1 ef ]
+"617
+[; ;main.c: 617: {
+{
+[e :U _SerialRead ]
+[f ]
+"618
+[; ;main.c: 618:     while(!RCIF);
+[e $U 548  ]
+[e :U 549 ]
+[e :U 548 ]
+[e $ ! _RCIF 549  ]
+[e :U 550 ]
+"619
+[; ;main.c: 619:     return RCREG;
+[e ) -> _RCREG `uc ]
+[e $UE 547  ]
+"620
+[; ;main.c: 620: }
+[e :UE 547 ]
+}
+"622
+[; ;main.c: 622: void SerialReadText(char *Output, unsigned int lenght)
+[v _SerialReadText `(v ~T0 @X0 1 ef2`*uc`ui ]
+"623
+[; ;main.c: 623: {
+{
+[e :U _SerialReadText ]
+"622
+[; ;main.c: 622: void SerialReadText(char *Output, unsigned int lenght)
+[v _Output `*uc ~T0 @X0 1 r1 ]
+[v _lenght `ui ~T0 @X0 1 r2 ]
+"623
+[; ;main.c: 623: {
+[f ]
+"624
+[; ;main.c: 624:     unsigned int i;
+[v _i `ui ~T0 @X0 1 a ]
+"625
+[; ;main.c: 625:     for(i=0;i<lenght;i++)
+{
+[e = _i -> -> 0 `i `ui ]
+[e $U 555  ]
+[e :U 552 ]
+"626
+[; ;main.c: 626:     {
+{
+"627
+[; ;main.c: 627:         Output[i] = SerialRead();
+[e = *U + _Output * -> _i `ux -> -> # *U _Output `ui `ux ( _SerialRead ..  ]
+"628
+[; ;main.c: 628:     }
+}
+[e ++ _i -> -> 1 `i `ui ]
+[e :U 555 ]
+[e $ < _i _lenght 552  ]
+[e :U 553 ]
+}
+"629
+[; ;main.c: 629: }
+[e :UE 551 ]
 }
