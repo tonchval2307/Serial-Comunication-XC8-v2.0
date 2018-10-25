@@ -22,7 +22,7 @@ Files Requiered for project compiling:
     
   
   Disclaimer:
-    - This software it wa not tested yet, the user most test the software using a simulator or a physical circuit.
+    - This software it was not tested yet, the user most test the software using a simulator or a physical circuit.
     
     
     
