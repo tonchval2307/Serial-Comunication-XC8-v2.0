@@ -1,4 +1,4 @@
-# 1 "application.c"
+# 1 "Practica_1.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,9 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "application.c" 2
-# 1 "./system.h" 1
-# 34 "./system.h"
+# 1 "Practica_1.c" 2
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\xc.h" 1 3
 # 18 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -5619,8 +5617,10 @@ extern __attribute__((nonreentrant)) void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 32 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\xc.h" 2 3
-# 34 "./system.h" 2
+# 1 "Practica_1.c" 2
 
+# 1 "./system.h" 1
+# 35 "./system.h"
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\c99\\stdint.h" 1 3
 # 22 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\c99\\stdint.h" 3
 # 1 "C:\\Program Files (x86)\\Microchip\\xc8\\v2.00\\pic\\include\\c99\\bits/alltypes.h" 1 3
@@ -5833,124 +5833,18 @@ void setupComunication(void);
 
 void Hola_Mundo_Init(void);
 void Hola_Mundo(void);
-# 1 "application.c" 2
+# 2 "Practica_1.c" 2
 
 
-
-enum LEDS{estado1, estado2, estado3, estado4};
-int estado;
-
-int led1 = 15;
-int led2 = 16;
-int led3 = 17;
-int led4 = 18;
-
-int derecha = 19;
-int izquierda = 20;
-
-void setup(void)
+void Hola_Mundo_Init(void)
 {
-    pinMode(led1,0);
-    pinMode(led2,0);
-    pinMode(led3,0);
-    pinMode(led4,0);
-    pinMode(izquierda,1);
-    pinMode(derecha,1);
-    estado = estado1;
-
+    pinMode(16,0);
 }
 
-void loop(void)
+void Hola_Mundo(void)
 {
-    switch(estado)
-    {
-        case estado1:
-            digitalWrite(led1,1);
-            digitalWrite(led2,0);
-            digitalWrite(led3,0);
-            digitalWrite(led4,0);
-            if(digitalRead(izquierda) == 1)
-            {
-                delay(100);
-                if(digitalRead(izquierda) == 1)
-                {
-                    estado = estado2;
-                }
-            }
-            if(digitalRead(derecha)== 1)
-            {
-                delay(100);
-                if(digitalRead(derecha)== 1)
-                {
-                    estado = estado4;
-                }
-            }
-            break;
-        case estado2:
-            digitalWrite(led1,0);
-            digitalWrite(led2,1);
-            digitalWrite(led3,0);
-            digitalWrite(led4,0);
-            if(digitalRead(izquierda) == 1)
-            {
-                delay(100);
-                if(digitalRead(izquierda) == 1)
-                {
-                    estado = estado3;
-                }
-            }
-            if(digitalRead(derecha)== 1)
-            {
-                delay(100);
-                if(digitalRead(derecha)== 1)
-                {
-                    estado = estado1;
-                }
-            }
-            break;
-        case estado3:
-            digitalWrite(led1,0);
-            digitalWrite(led2,0);
-            digitalWrite(led3,1);
-            digitalWrite(led4,0);
-            if(digitalRead(izquierda) == 1)
-            {
-                delay(100);
-                if(digitalRead(izquierda) == 1)
-                {
-                    estado = estado4;
-                }
-            }
-            if(digitalRead(derecha)== 1)
-            {
-                delay(100);
-                if(digitalRead(derecha)== 1)
-                {
-                    estado = estado2;
-                }
-            }
-            break;
-        case estado4:
-            digitalWrite(led1,0);
-            digitalWrite(led2,0);
-            digitalWrite(led3,0);
-            digitalWrite(led4,1);
-            if(digitalRead(izquierda) == 1)
-            {
-                delay(100);
-                if(digitalRead(izquierda) == 1)
-                {
-                    estado = estado1;
-                }
-            }
-            if(digitalRead(derecha)== 1)
-            {
-                delay(100);
-                if(digitalRead(derecha)== 1)
-                {
-                    estado = estado3;
-                }
-            }
-            break;
-    }
+    digitalWrite(16,1);
+    _delay((unsigned long)((250)*(24000000/4000.0)));
+    digitalWrite(16,0);
+    _delay((unsigned long)((250)*(24000000/4000.0)));
 }

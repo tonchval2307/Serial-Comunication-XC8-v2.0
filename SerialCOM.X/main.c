@@ -7,9 +7,12 @@
 
 unsigned long millis = 0;
 long freq;
+int SPBRG_Register;
 
 int main(void)
 {
+    SPBRG_Register = SPBRG;
+    
     configuracionInicial();
     setup();
     while(1)
@@ -33,18 +36,24 @@ void configuracionInicial(void)
 }
 void delay(const int milis)
 {
-    for(int a=1;a<=milis;a++)
+    for(int j=0;j<milis;j++)
     {
-        Delay1KTCYx(12);
+        //Retardo de 1ms
+        for(int i=0;i<400;i++)
+        {
+            asm("NOP");
+        }
     }
 }
 
 void delayMicroseconds(const int micros)
 {
-    //Con un Cristal de 20MHz el retardo es en Multipos de 2uSegundos
-    int m;
-    m = micros * 3;
-    Delay1TCYx(m);
+    //Con un Cristal de 20MHz el retardo es en Multipos de 6.5uSegundos
+    for(int i=0;i<micros;i++)
+    {
+        asm("NOP");
+    }
+    
 }
 
 void pinMode(char pin, char mode)
@@ -363,27 +372,23 @@ void CCPConfig(void)
 }
 void TMR0Config(void)
 {
-    //COnfiguracion para crear un desborde del registro del Timer 0 cada Milisegundo.
-    T0CON = 0x17;
-    INTCONbits.T0IE = 1;
-    //    T0CONbits.TMR0ON = 1;
-    //    T0CON = 0xC4;
-    //OpenTimer0(TIMER_INT_ON & T0_16BIT & T0_SOURCE_INT & T0_PS_1_256);
-    //WriteTimer0(0x0000); //OverLFow a 1 Segundo
-    TMR0L = 0x00;
-    TMR0H = 0x00;
-    INTCONbits.TMR0IF = 0;
-    ei();
+//    //COnfiguracion para crear un desborde del registro del Timer 0 cada Milisegundo.
+//    T0CON = 0x17;
+//    INTCONbits.T0IE = 1;
+//    //    T0CONbits.TMR0ON = 1;
+//    //    T0CON = 0xC4;
+//    //OpenTimer0(TIMER_INT_ON & T0_16BIT & T0_SOURCE_INT & T0_PS_1_256);
+//    //WriteTimer0(0x0000); //OverLFow a 1 Segundo
+//    TMR0L = 0x00;
+//    TMR0H = 0x00;
+//    INTCONbits.TMR0IF = 0;
+//    ei();
 }
 double Time(void)
 {
     return (millis * 1.4)+(TMR0 * 0.000021);
 }
 
-unsigned long milliseconds( unsigned long mil)
-{
-    
-}
 void __interrupt() TimerOverflow(void)
 {
     if(INTCONbits.TMR0IF == 1)
@@ -547,7 +552,7 @@ double rescale(double x, double in_min, double in_max, double out_min, double ou
 
 char SerialBegin(const long int baudRate)
 {
-    unsigned int x;
+    unsigned long int x;
     x = ((_XTAL_FREQ / baudRate)/16) - 1;
     if(x > 255)
     {
@@ -594,7 +599,7 @@ char RxIdle(void)
 {
     return RCIDL; // 1 ---> reciver Operation is in IDLE
 }
-void SerialWrite(int dataWrite)
+void SerialWrite(char dataWrite)
 {
     while(!TRMT);
     TXREG = dataWrite;

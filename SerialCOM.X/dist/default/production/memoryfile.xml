@@ -3,15 +3,15 @@
   <executable name="dist/default/production\SerialCOM.X.production.hex">
     <memory name="program">
       <units>bytes</units>
-      <length>32768</length>
-      <used>830</used>
-      <free>31938</free>
+      <length>31969</length>
+      <used>3826</used>
+      <free>28143</free>
     </memory>
     <memory name="data">
       <units>bytes</units>
       <length>2048</length>
-      <used>31</used>
-      <free>2017</free>
+      <used>47</used>
+      <free>2001</free>
     </memory>
   </executable>
 </project>

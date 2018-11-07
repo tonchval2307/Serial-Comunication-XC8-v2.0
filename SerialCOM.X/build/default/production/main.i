@@ -5996,7 +5996,7 @@ void PWM2_Stop(void);
 double rescale(double x, double in_min, double in_max, double out_min, double out_max);
 
 char SerialBegin(const long int baudRate);
-void SerialWrite(int dataWrite);
+void SerialWrite(char dataWrite);
 char SerialRead(void);
 char SerialAvailable(void);
 char SerialWriteText(char *dataText);
@@ -6004,14 +6004,25 @@ void SerialReadText(char *Output, unsigned int lenght);
 char SerialErrors(void);
 char RxIdle(void);
 char TxRegisterFull(void);
+
+void ComunicationProcess(void);
+void setupComunication(void);
+
+
+
+void Hola_Mundo_Init(void);
+void Hola_Mundo(void);
 # 6 "main.c" 2
 
 
 unsigned long millis = 0;
 long freq;
+int SPBRG_Register;
 
 int main(void)
 {
+    SPBRG_Register = SPBRG;
+
     configuracionInicial();
     setup();
     while(1)
@@ -6035,18 +6046,24 @@ void configuracionInicial(void)
 }
 void delay(const int milis)
 {
-    for(int a=1;a<=milis;a++)
+    for(int j=0;j<milis;j++)
     {
-        Delay1KTCYx(12);
+
+        for(int i=0;i<400;i++)
+        {
+            __asm("NOP");
+        }
     }
 }
 
 void delayMicroseconds(const int micros)
 {
 
-    int m;
-    m = micros * 3;
-    Delay1TCYx(m);
+    for(int i=0;i<micros;i++)
+    {
+        __asm("NOP");
+    }
+
 }
 
 void pinMode(char pin, char mode)
@@ -6365,27 +6382,13 @@ void CCPConfig(void)
 }
 void TMR0Config(void)
 {
-
-    T0CON = 0x17;
-    INTCONbits.T0IE = 1;
-
-
-
-
-    TMR0L = 0x00;
-    TMR0H = 0x00;
-    INTCONbits.TMR0IF = 0;
-    (INTCONbits.GIE = 1);
+# 386 "main.c"
 }
 double Time(void)
 {
     return (millis * 1.4)+(TMR0 * 0.000021);
 }
 
-unsigned long milliseconds( unsigned long mil)
-{
-
-}
 void __attribute__((picinterrupt(""))) TimerOverflow(void)
 {
     if(INTCONbits.TMR0IF == 1)
@@ -6549,7 +6552,7 @@ double rescale(double x, double in_min, double in_max, double out_min, double ou
 
 char SerialBegin(const long int baudRate)
 {
-    unsigned int x;
+    unsigned long int x;
     x = ((24000000 / baudRate)/16) - 1;
     if(x > 255)
     {
@@ -6596,7 +6599,7 @@ char RxIdle(void)
 {
     return RCIDL;
 }
-void SerialWrite(int dataWrite)
+void SerialWrite(char dataWrite)
 {
     while(!TRMT);
     TXREG = dataWrite;

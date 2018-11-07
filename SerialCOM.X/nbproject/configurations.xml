@@ -16,6 +16,8 @@
                    projectFiles="true">
       <itemPath>main.c</itemPath>
       <itemPath>application.c</itemPath>
+      <itemPath>COMStateMachine.c</itemPath>
+      <itemPath>Practica_1.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -105,7 +107,7 @@
         <property key="calibrate-oscillator-value" value="0x3400"/>
         <property key="clear-bss" value="true"/>
         <property key="code-model-external" value="wordwrite"/>
-        <property key="code-model-rom" value=""/>
+        <property key="code-model-rom" value="0020-7D00"/>
         <property key="create-html-files" value="false"/>
         <property key="data-model-ram" value=""/>
         <property key="data-model-size-of-double" value="32"/>

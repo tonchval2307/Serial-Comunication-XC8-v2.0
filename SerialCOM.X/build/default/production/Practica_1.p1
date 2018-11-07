@@ -2,19 +2,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "120 ./system.h
 [; ;./system.h: 120: void pinMode(char pin, char mode);
 [v _pinMode `(v ~T0 @X0 0 ef2`uc`uc ]
-"23 application.c
-[; ;application.c: 23:     estado = estado1;
-[c E3261 0 1 2 3 .. ]
-[n E3261 LEDS estado1 estado2 estado3 estado4  ]
-"121 ./system.h
+"121
 [; ;./system.h: 121: void digitalWrite(char pin, char mode);
 [v _digitalWrite `(v ~T0 @X0 0 ef2`uc`uc ]
-"122
-[; ;./system.h: 122: char digitalRead(char pin);
-[v _digitalRead `(uc ~T0 @X0 0 ef1`uc ]
-"117
-[; ;./system.h: 117: void delay(const int milis);
-[v _delay `(v ~T0 @X0 0 ef1`Ci ]
+[v F3150 `(v ~T0 @X0 1 tf1`ul ]
+"183 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic18.h
+[v __delay `JF3150 ~T0 @X0 0 e ]
+[p i __delay ]
 "54 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic18f4550.h
 [; ;C:\Program Files (x86)\Microchip\xc8\v2.00\pic\include\pic18f4550.h: 54: __asm("SPPDATA equ 0F62h");
 [; <" SPPDATA equ 0F62h ;# ">
@@ -601,384 +595,42 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p x EBTR3 = OFF ]
 "97
 [p x EBTRB = OFF ]
-"5 application.c
-[; ;application.c: 5: int estado;
-[v _estado `i ~T0 @X0 1 e ]
-"7
-[; ;application.c: 7: int led1 = 15;
-[v _led1 `i ~T0 @X0 1 e ]
-[i _led1
--> 15 `i
-]
-"8
-[; ;application.c: 8: int led2 = 16;
-[v _led2 `i ~T0 @X0 1 e ]
-[i _led2
--> 16 `i
-]
-"9
-[; ;application.c: 9: int led3 = 17;
-[v _led3 `i ~T0 @X0 1 e ]
-[i _led3
--> 17 `i
-]
-"10
-[; ;application.c: 10: int led4 = 18;
-[v _led4 `i ~T0 @X0 1 e ]
-[i _led4
--> 18 `i
-]
-"12
-[; ;application.c: 12: int derecha = 19;
-[v _derecha `i ~T0 @X0 1 e ]
-[i _derecha
--> 19 `i
-]
-"13
-[; ;application.c: 13: int izquierda = 20;
-[v _izquierda `i ~T0 @X0 1 e ]
-[i _izquierda
--> 20 `i
-]
-"15
-[; ;application.c: 15: void setup(void)
-[v _setup `(v ~T0 @X0 1 ef ]
-"16
-[; ;application.c: 16: {
+"4 Practica_1.c
+[; ;Practica_1.c: 4: void Hola_Mundo_Init(void)
+[v _Hola_Mundo_Init `(v ~T0 @X0 1 ef ]
+"5
+[; ;Practica_1.c: 5: {
 {
-[e :U _setup ]
+[e :U _Hola_Mundo_Init ]
 [f ]
-"17
-[; ;application.c: 17:     pinMode(led1,0);
-[e ( _pinMode (2 , -> _led1 `uc -> -> 0 `i `uc ]
-"18
-[; ;application.c: 18:     pinMode(led2,0);
-[e ( _pinMode (2 , -> _led2 `uc -> -> 0 `i `uc ]
-"19
-[; ;application.c: 19:     pinMode(led3,0);
-[e ( _pinMode (2 , -> _led3 `uc -> -> 0 `i `uc ]
-"20
-[; ;application.c: 20:     pinMode(led4,0);
-[e ( _pinMode (2 , -> _led4 `uc -> -> 0 `i `uc ]
-"21
-[; ;application.c: 21:     pinMode(izquierda,1);
-[e ( _pinMode (2 , -> _izquierda `uc -> -> 1 `i `uc ]
-"22
-[; ;application.c: 22:     pinMode(derecha,1);
-[e ( _pinMode (2 , -> _derecha `uc -> -> 1 `i `uc ]
-"23
-[; ;application.c: 23:     estado = estado1;
-[e = _estado -> . `E3261 0 `i ]
-"25
-[; ;application.c: 25: }
+"6
+[; ;Practica_1.c: 6:     pinMode(16,0);
+[e ( _pinMode (2 , -> -> 16 `i `uc -> -> 0 `i `uc ]
+"7
+[; ;Practica_1.c: 7: }
 [e :UE 367 ]
 }
-"27
-[; ;application.c: 27: void loop(void)
-[v _loop `(v ~T0 @X0 1 ef ]
-"28
-[; ;application.c: 28: {
+"9
+[; ;Practica_1.c: 9: void Hola_Mundo(void)
+[v _Hola_Mundo `(v ~T0 @X0 1 ef ]
+"10
+[; ;Practica_1.c: 10: {
 {
-[e :U _loop ]
+[e :U _Hola_Mundo ]
 [f ]
-"29
-[; ;application.c: 29:     switch(estado)
-[e $U 370  ]
-"30
-[; ;application.c: 30:     {
-{
-"31
-[; ;application.c: 31:         case estado1:
-[e :U 371 ]
-"32
-[; ;application.c: 32:             digitalWrite(led1,1);
-[e ( _digitalWrite (2 , -> _led1 `uc -> -> 1 `i `uc ]
-"33
-[; ;application.c: 33:             digitalWrite(led2,0);
-[e ( _digitalWrite (2 , -> _led2 `uc -> -> 0 `i `uc ]
-"34
-[; ;application.c: 34:             digitalWrite(led3,0);
-[e ( _digitalWrite (2 , -> _led3 `uc -> -> 0 `i `uc ]
-"35
-[; ;application.c: 35:             digitalWrite(led4,0);
-[e ( _digitalWrite (2 , -> _led4 `uc -> -> 0 `i `uc ]
-"36
-[; ;application.c: 36:             if(digitalRead(izquierda) == 1)
-[e $ ! == -> ( _digitalRead (1 -> _izquierda `uc `i -> 1 `i 372  ]
-"37
-[; ;application.c: 37:             {
-{
-"38
-[; ;application.c: 38:                 delay(100);
-[e ( _delay (1 -> 100 `i ]
-"39
-[; ;application.c: 39:                 if(digitalRead(izquierda) == 1)
-[e $ ! == -> ( _digitalRead (1 -> _izquierda `uc `i -> 1 `i 373  ]
-"40
-[; ;application.c: 40:                 {
-{
-"41
-[; ;application.c: 41:                     estado = estado2;
-[e = _estado -> . `E3261 1 `i ]
-"42
-[; ;application.c: 42:                 }
-}
-[e :U 373 ]
-"43
-[; ;application.c: 43:             }
-}
-[e :U 372 ]
-"44
-[; ;application.c: 44:             if(digitalRead(derecha)== 1)
-[e $ ! == -> ( _digitalRead (1 -> _derecha `uc `i -> 1 `i 374  ]
-"45
-[; ;application.c: 45:             {
-{
-"46
-[; ;application.c: 46:                 delay(100);
-[e ( _delay (1 -> 100 `i ]
-"47
-[; ;application.c: 47:                 if(digitalRead(derecha)== 1)
-[e $ ! == -> ( _digitalRead (1 -> _derecha `uc `i -> 1 `i 375  ]
-"48
-[; ;application.c: 48:                 {
-{
-"49
-[; ;application.c: 49:                     estado = estado4;
-[e = _estado -> . `E3261 3 `i ]
-"50
-[; ;application.c: 50:                 }
-}
-[e :U 375 ]
-"51
-[; ;application.c: 51:             }
-}
-[e :U 374 ]
-"52
-[; ;application.c: 52:             break;
-[e $U 369  ]
-"53
-[; ;application.c: 53:         case estado2:
-[e :U 376 ]
-"54
-[; ;application.c: 54:             digitalWrite(led1,0);
-[e ( _digitalWrite (2 , -> _led1 `uc -> -> 0 `i `uc ]
-"55
-[; ;application.c: 55:             digitalWrite(led2,1);
-[e ( _digitalWrite (2 , -> _led2 `uc -> -> 1 `i `uc ]
-"56
-[; ;application.c: 56:             digitalWrite(led3,0);
-[e ( _digitalWrite (2 , -> _led3 `uc -> -> 0 `i `uc ]
-"57
-[; ;application.c: 57:             digitalWrite(led4,0);
-[e ( _digitalWrite (2 , -> _led4 `uc -> -> 0 `i `uc ]
-"58
-[; ;application.c: 58:             if(digitalRead(izquierda) == 1)
-[e $ ! == -> ( _digitalRead (1 -> _izquierda `uc `i -> 1 `i 377  ]
-"59
-[; ;application.c: 59:             {
-{
-"60
-[; ;application.c: 60:                 delay(100);
-[e ( _delay (1 -> 100 `i ]
-"61
-[; ;application.c: 61:                 if(digitalRead(izquierda) == 1)
-[e $ ! == -> ( _digitalRead (1 -> _izquierda `uc `i -> 1 `i 378  ]
-"62
-[; ;application.c: 62:                 {
-{
-"63
-[; ;application.c: 63:                     estado = estado3;
-[e = _estado -> . `E3261 2 `i ]
-"64
-[; ;application.c: 64:                 }
-}
-[e :U 378 ]
-"65
-[; ;application.c: 65:             }
-}
-[e :U 377 ]
-"66
-[; ;application.c: 66:             if(digitalRead(derecha)== 1)
-[e $ ! == -> ( _digitalRead (1 -> _derecha `uc `i -> 1 `i 379  ]
-"67
-[; ;application.c: 67:             {
-{
-"68
-[; ;application.c: 68:                 delay(100);
-[e ( _delay (1 -> 100 `i ]
-"69
-[; ;application.c: 69:                 if(digitalRead(derecha)== 1)
-[e $ ! == -> ( _digitalRead (1 -> _derecha `uc `i -> 1 `i 380  ]
-"70
-[; ;application.c: 70:                 {
-{
-"71
-[; ;application.c: 71:                     estado = estado1;
-[e = _estado -> . `E3261 0 `i ]
-"72
-[; ;application.c: 72:                 }
-}
-[e :U 380 ]
-"73
-[; ;application.c: 73:             }
-}
-[e :U 379 ]
-"74
-[; ;application.c: 74:             break;
-[e $U 369  ]
-"75
-[; ;application.c: 75:         case estado3:
-[e :U 381 ]
-"76
-[; ;application.c: 76:             digitalWrite(led1,0);
-[e ( _digitalWrite (2 , -> _led1 `uc -> -> 0 `i `uc ]
-"77
-[; ;application.c: 77:             digitalWrite(led2,0);
-[e ( _digitalWrite (2 , -> _led2 `uc -> -> 0 `i `uc ]
-"78
-[; ;application.c: 78:             digitalWrite(led3,1);
-[e ( _digitalWrite (2 , -> _led3 `uc -> -> 1 `i `uc ]
-"79
-[; ;application.c: 79:             digitalWrite(led4,0);
-[e ( _digitalWrite (2 , -> _led4 `uc -> -> 0 `i `uc ]
-"80
-[; ;application.c: 80:             if(digitalRead(izquierda) == 1)
-[e $ ! == -> ( _digitalRead (1 -> _izquierda `uc `i -> 1 `i 382  ]
-"81
-[; ;application.c: 81:             {
-{
-"82
-[; ;application.c: 82:                 delay(100);
-[e ( _delay (1 -> 100 `i ]
-"83
-[; ;application.c: 83:                 if(digitalRead(izquierda) == 1)
-[e $ ! == -> ( _digitalRead (1 -> _izquierda `uc `i -> 1 `i 383  ]
-"84
-[; ;application.c: 84:                 {
-{
-"85
-[; ;application.c: 85:                     estado = estado4;
-[e = _estado -> . `E3261 3 `i ]
-"86
-[; ;application.c: 86:                 }
-}
-[e :U 383 ]
-"87
-[; ;application.c: 87:             }
-}
-[e :U 382 ]
-"88
-[; ;application.c: 88:             if(digitalRead(derecha)== 1)
-[e $ ! == -> ( _digitalRead (1 -> _derecha `uc `i -> 1 `i 384  ]
-"89
-[; ;application.c: 89:             {
-{
-"90
-[; ;application.c: 90:                 delay(100);
-[e ( _delay (1 -> 100 `i ]
-"91
-[; ;application.c: 91:                 if(digitalRead(derecha)== 1)
-[e $ ! == -> ( _digitalRead (1 -> _derecha `uc `i -> 1 `i 385  ]
-"92
-[; ;application.c: 92:                 {
-{
-"93
-[; ;application.c: 93:                     estado = estado2;
-[e = _estado -> . `E3261 1 `i ]
-"94
-[; ;application.c: 94:                 }
-}
-[e :U 385 ]
-"95
-[; ;application.c: 95:             }
-}
-[e :U 384 ]
-"96
-[; ;application.c: 96:             break;
-[e $U 369  ]
-"97
-[; ;application.c: 97:         case estado4:
-[e :U 386 ]
-"98
-[; ;application.c: 98:             digitalWrite(led1,0);
-[e ( _digitalWrite (2 , -> _led1 `uc -> -> 0 `i `uc ]
-"99
-[; ;application.c: 99:             digitalWrite(led2,0);
-[e ( _digitalWrite (2 , -> _led2 `uc -> -> 0 `i `uc ]
-"100
-[; ;application.c: 100:             digitalWrite(led3,0);
-[e ( _digitalWrite (2 , -> _led3 `uc -> -> 0 `i `uc ]
-"101
-[; ;application.c: 101:             digitalWrite(led4,1);
-[e ( _digitalWrite (2 , -> _led4 `uc -> -> 1 `i `uc ]
-"102
-[; ;application.c: 102:             if(digitalRead(izquierda) == 1)
-[e $ ! == -> ( _digitalRead (1 -> _izquierda `uc `i -> 1 `i 387  ]
-"103
-[; ;application.c: 103:             {
-{
-"104
-[; ;application.c: 104:                 delay(100);
-[e ( _delay (1 -> 100 `i ]
-"105
-[; ;application.c: 105:                 if(digitalRead(izquierda) == 1)
-[e $ ! == -> ( _digitalRead (1 -> _izquierda `uc `i -> 1 `i 388  ]
-"106
-[; ;application.c: 106:                 {
-{
-"107
-[; ;application.c: 107:                     estado = estado1;
-[e = _estado -> . `E3261 0 `i ]
-"108
-[; ;application.c: 108:                 }
-}
-[e :U 388 ]
-"109
-[; ;application.c: 109:             }
-}
-[e :U 387 ]
-"110
-[; ;application.c: 110:             if(digitalRead(derecha)== 1)
-[e $ ! == -> ( _digitalRead (1 -> _derecha `uc `i -> 1 `i 389  ]
-"111
-[; ;application.c: 111:             {
-{
-"112
-[; ;application.c: 112:                 delay(100);
-[e ( _delay (1 -> 100 `i ]
-"113
-[; ;application.c: 113:                 if(digitalRead(derecha)== 1)
-[e $ ! == -> ( _digitalRead (1 -> _derecha `uc `i -> 1 `i 390  ]
-"114
-[; ;application.c: 114:                 {
-{
-"115
-[; ;application.c: 115:                     estado = estado3;
-[e = _estado -> . `E3261 2 `i ]
-"116
-[; ;application.c: 116:                 }
-}
-[e :U 390 ]
-"117
-[; ;application.c: 117:             }
-}
-[e :U 389 ]
-"118
-[; ;application.c: 118:             break;
-[e $U 369  ]
-"119
-[; ;application.c: 119:     }
-}
-[e $U 369  ]
-[e :U 370 ]
-[e [\ _estado , $ . `E3261 0 371
- , $ . `E3261 1 376
- , $ . `E3261 2 381
- , $ . `E3261 3 386
- 369 ]
-[e :U 369 ]
-"120
-[; ;application.c: 120: }
+"11
+[; ;Practica_1.c: 11:     digitalWrite(16,1);
+[e ( _digitalWrite (2 , -> -> 16 `i `uc -> -> 1 `i `uc ]
+"12
+[; ;Practica_1.c: 12:     _delay((unsigned long)((250)*(24000000/4000.0)));
+[e ( __delay (1 -> * -> -> 250 `i `d / -> -> 24000000 `l `d .4000.0 `ul ]
+"13
+[; ;Practica_1.c: 13:     digitalWrite(16,0);
+[e ( _digitalWrite (2 , -> -> 16 `i `uc -> -> 0 `i `uc ]
+"14
+[; ;Practica_1.c: 14:     _delay((unsigned long)((250)*(24000000/4000.0)));
+[e ( __delay (1 -> * -> -> 250 `i `d / -> -> 24000000 `l `d .4000.0 `ul ]
+"15
+[; ;Practica_1.c: 15: }
 [e :UE 368 ]
 }

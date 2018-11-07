@@ -159,7 +159,7 @@ void PWM2_Stop(void);
 double rescale(double x, double in_min, double in_max, double out_min, double out_max);
 /* Serial Comunication */
 char SerialBegin(const long int baudRate);
-void SerialWrite(int dataWrite);
+void SerialWrite(char dataWrite);
 char SerialRead(void);
 char SerialAvailable(void);
 char SerialWriteText(char *dataText);
@@ -168,11 +168,13 @@ char SerialErrors(void);
 char RxIdle(void);
 char TxRegisterFull(void);
 // TODO Insert appropriate #include <>
-
+void ComunicationProcess(void);
+void setupComunication(void);
 // TODO Insert C++ class definitions if appropriate
 
 // TODO Insert declarations
-
+void Hola_Mundo_Init(void);
+void Hola_Mundo(void);
 // Comment a function and leverage automatic documentation with slash star star
 /**
     <p><b>Function prototype:</b></p>
