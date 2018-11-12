@@ -342,22 +342,23 @@ void analogWrite(char pin,unsigned int value)
     switch(pin)
     {
         case 4:
-            TRISC2 = 0;
+            //TRISC2 = 0;
             if(value <1024)
             {
                 value = ((float)value / 1023) * PWM_Max_Duty();
-                DC1B1 = value & 2;
-                DC1B0 = value & 1;
+                CCP1CONbits.DC1B1 = value & 2;
+                CCP1CONbits.DC1B0 = value & 1;
                 CCPR1L = value >> 2;
             }
             break;
         case 3:
-            TRISC1 = 0;
+            //TRISC1 = 0;
             if(value <1024)
             {
                 value = ((float)value / 1023) * PWM_Max_Duty();
-                DC2B1 = value & 2;
-                DC2B0 = value & 1;
+                //DC2B1 = value & 2;
+                CCP2CONbits.DC2B1 = value & 2;
+                CCP2CONbits.DC2B0 = value & 1;
                 CCPR2L = value >> 2;
             }
             break;

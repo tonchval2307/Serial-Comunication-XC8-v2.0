@@ -1,140 +1,221 @@
 #include "system.h"
 #include <xc.h>
-//       --0---------1--------2--------3---
-enum LEDS{estado1, estado2, estado3, estado4};
-int estado;
 
-int led1 = 15;
-int led2 = 16;
-int led3 = 17;
-int led4 = 18;
+char Operator;
+char Terminal;
 
-int derecha = 19;
-int izquierda = 20;
+char buffer = 2;
+unsigned int ADC;
+char A0 = 0;
+char PWMTerminal = 4;
+char ADCMSB,ADCLSB;
+
+char vectorIn[3];
+char vectorOut[2];
+
+unsigned int PWM;
+char PWMMSB,PWMLSB;
 
 void setup(void)
 {
-    pinMode(led1,OUTPUT);
-    pinMode(led2,OUTPUT);
-    pinMode(led3,OUTPUT);
-    pinMode(led4,OUTPUT);
-    pinMode(izquierda,INPUT);
-    pinMode(derecha,INPUT);
-    estado = estado1;
-    
+    SerialBegin(9600);
+    pinMode(4,OUTPUT);
 }
 
 void loop(void)
 {
-    switch(estado)
+    if(SerialAvailable())
     {
-        case estado1:
-            digitalWrite(led1,HIGH);
-            digitalWrite(led2,LOW);
-            digitalWrite(led3,LOW);
-            digitalWrite(led4,LOW);
-            if(digitalRead(izquierda) == HIGH)
-            {
-                delay(100);
-                if(digitalRead(izquierda) == HIGH)
-                {
-                    estado = estado2;
-                }
-            }
-            if(digitalRead(derecha)== HIGH)
-            {
-                delay(100);
-                if(digitalRead(derecha)== HIGH)
-                {
-                    estado = estado4;
-                }
-            }
-            break;
-        case estado2:
-            digitalWrite(led1,LOW);
-            digitalWrite(led2,HIGH);
-            digitalWrite(led3,LOW);
-            digitalWrite(led4,LOW);
-            if(digitalRead(izquierda) == HIGH)
-            {
-                delay(100);
-                if(digitalRead(izquierda) == HIGH)
-                {
-                    estado = estado3;
-                }
-            }
-            if(digitalRead(derecha)== HIGH)
-            {
-                delay(100);
-                if(digitalRead(derecha)== HIGH)
-                {
-                    estado = estado1;
-                }
-            }
-            break;
-        case estado3:
-            digitalWrite(led1,LOW);
-            digitalWrite(led2,LOW);
-            digitalWrite(led3,HIGH);
-            digitalWrite(led4,LOW);
-            if(digitalRead(izquierda) == HIGH)
-            {
-                delay(100);
-                if(digitalRead(izquierda) == HIGH)
-                {
-                    estado = estado4;
-                }
-            }
-            if(digitalRead(derecha)== HIGH)
-            {
-                delay(100);
-                if(digitalRead(derecha)== HIGH)
-                {
-                    estado = estado2;
-                }
-            }
-            break;
-        case estado4:
-            digitalWrite(led1,LOW);
-            digitalWrite(led2,LOW);
-            digitalWrite(led3,LOW);
-            digitalWrite(led4,HIGH);
-            if(digitalRead(izquierda) == HIGH)
-            {
-                delay(100);
-                if(digitalRead(izquierda) == HIGH)
-                {
-                    estado = estado1;
-                }
-            }
-            if(digitalRead(derecha)== HIGH)
-            {
-                delay(100);
-                if(digitalRead(derecha)== HIGH)
-                {
-                    estado = estado3;
-                }
-            }
-            break;
+        for(int i=0;i<buffer;i++)
+        {
+            vectorIn[i] = SerialRead();
+        }
+        PWMLSB = vectorIn[1];
+        PWMMSB = vectorIn[0];
+        PWM = PWMMSB;
+        PWM = PWM << 8;
+        PWM += PWMLSB;
+        analogWrite(4,PWM);
+        ADC = analogRead(0);
+        ADCMSB = cocienteEntero(ADC,256);
+        ADCLSB = residuo(ADC,256);
+        vectorOut[0] = ADCMSB;
+        vectorOut[1] = ADCLSB;
+        for(int i=0;i<buffer;i++)
+        {
+            SerialWrite(vectorOut[i]);
+        }
+        delay(100);
+    }
+    else
+    {
+        analogWrite(4,0);
     }
 }
 
+char residuo(unsigned int numerator, unsigned int denominator)
+{
+	unsigned int temp1 = numerator;
+	while(temp1 > denominator)
+	{
+		temp1 -= denominator;
+	}
+	return temp1;
+}
+
+char cocienteEntero(unsigned int numerator, unsigned int denominator)
+{
+	unsigned int cont = 0;
+	unsigned int temp1 = numerator;
+	while (temp1 > denominator)
+	{
+		temp1 -= denominator;
+		cont++;
+	}
+	return cont;
+}
+
 /*
- *Working:
- *  if(SerialAvailable())
+void setup(void)
+{
+    SerialBegin(9600);
+    pinMode(4,OUTPUT);
+}
+
+void loop(void)
+{
+    if(SerialAvailable())
     {
-        for(int i=0;i<256;i++)
+        for(int i=0;i<buffer;i++)
         {
-            SerialWrite(i);
-            delay(100);
-            if(TxRegisterFull())
-            {
-                digitalWrite(20,HIGH);
-            }
-            else
-            {
-                digitalWrite(20,LOW);
-            }
+            vectorIn[i] = SerialRead();
         }
+        PWMLSB = vectorIn[1];
+        PWMMSB = vectorIn[0];
+ *      PWM = PWMMSB;
+ *      PWM = PWM << 8;
+        PWM += PWMLSB;
+ *      analogWrite(4,PWM);
+        ADC = analogRead(0);
+        ADCMSB = cocienteEntero(ADC,256);
+        ADCLSB = residuo(ADC,256);
+        vectorOut[0] = ADCMSB;
+        vectorOut[1] = ADCLSB;
+        for(int i=0;i<buffer;i++)
+        {
+            SerialWrite(vectorOut[i]);
+        }
+        delay(100);
     }
+}
+ */
+
+/*
+    void setup(void)
+{
+    SerialBegin(9600);
+    pinMode(3,OUTPUT);
+}
+
+void loop(void)
+{
+    if(SerialAvailable())
+    {
+        for(char i=0;i<3;i++)
+        {
+            vectorIn[i] = SerialRead();
+        }
+        Operator = vectorIn[0] & 0xE0;
+        Terminal = vectorIn[0] & 0x1F;
+        Operator = Operator >> 5;
+        switch(Operator)
+        {
+            case 2: //pinMode
+                pinMode(Terminal,vectorIn[1]);
+                break;
+            case 3: //digitalWrite
+                digitalWrite(Terminal,vectorIn[1]);
+                break;
+            case 4: //digitalRead
+                vectorOut[1] = digitalRead(Terminal);
+                break;
+            case 5: //analogWrite
+                PWMLSB = vectorIn[1];
+                PWMMSB = vectorIn[2] * 256;
+                PWM = PWMMSB + PWMLSB;
+                analogWrite(Terminal,PWM);
+                break;
+            case 6: //analogRead
+                ADC = analogRead(Terminal);
+                ADCMSB = cocienteEntero(ADC,256);
+                ADCLSB = residuo(ADC,256);
+                vectorOut[1] = ADCLSB;
+                vectorOut[0] = ADCMSB;
+                break;
+        }
+        for(char i=0;i<2;i++)
+        {
+            SerialWrite(vectorOut[i]);
+        }
+        delay(100);
+    }
+}
+ */
+
+/*
+ void setup(void)
+{
+    SerialBegin(9600);
+    pinMode(3,OUTPUT);
+}
+
+void loop(void)
+{
+    if(SerialAvailable())
+    {
+        for(char i=0;i<2;i++)
+        {
+            vectorIn[i] = SerialRead();
+        }
+        Operator = vectorIn[0] & 0xE0;
+        Operator = Operator >> 5;
+        switch(Operator)
+        {
+            case 2: //pinMode
+                Terminal = vectorIn[0] & 0x1F;
+                pinMode(Terminal,vectorIn[1]);
+                break;
+            case 3: //digitalWrite
+                digitalWrite(Terminal,vectorIn[1]);
+                break;
+            case 4: //digitalRead
+                vectorOut[1] = digitalRead(Terminal);
+                break;
+            case 5: //analogWrite
+                PWMMSB = vectorIn[0] & 0x1F;
+                PWMLSB = vectorIn[1];
+                PWM = PWMMSB;
+                PWM = PWM <<8;
+                PWM += PWMLSB;
+                analogWrite(Terminal,PWM);
+                vectorOut[0] = PWMLSB;
+                vectorOut[1] = PWMMSB;
+                break;
+            case 6: //analogRead
+                Terminal = vectorIn[0] & 0x1F;
+                ADC = analogRead(Terminal);
+                ADCMSB = cocienteEntero(ADC,256);
+                ADCLSB = residuo(ADC,256);
+                vectorOut[1] = ADCLSB;
+                vectorOut[0] = ADCMSB;
+                break;
+        }
+        for(char i=0;i<2;i++)
+        {
+            SerialWrite(vectorOut[i]);
+        }
+        delay(100);
+    }
+}
+
  */

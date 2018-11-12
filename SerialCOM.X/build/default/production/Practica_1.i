@@ -5833,6 +5833,9 @@ void setupComunication(void);
 
 void Hola_Mundo_Init(void);
 void Hola_Mundo(void);
+
+char cocienteEntero(unsigned int numerator, unsigned int denominator);
+char residuo(unsigned int numerator, unsigned int denominator);
 # 2 "Practica_1.c" 2
 
 

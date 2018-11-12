@@ -5833,124 +5833,83 @@ void setupComunication(void);
 
 void Hola_Mundo_Init(void);
 void Hola_Mundo(void);
+
+char cocienteEntero(unsigned int numerator, unsigned int denominator);
+char residuo(unsigned int numerator, unsigned int denominator);
 # 1 "application.c" 2
 
 
 
-enum LEDS{estado1, estado2, estado3, estado4};
-int estado;
+char Operator;
+char Terminal;
 
-int led1 = 15;
-int led2 = 16;
-int led3 = 17;
-int led4 = 18;
+char buffer = 2;
+unsigned int ADC;
+char A0 = 0;
+char PWMTerminal = 4;
+char ADCMSB,ADCLSB;
 
-int derecha = 19;
-int izquierda = 20;
+char vectorIn[3];
+char vectorOut[2];
+
+unsigned int PWM;
+char PWMMSB,PWMLSB;
 
 void setup(void)
 {
-    pinMode(led1,0);
-    pinMode(led2,0);
-    pinMode(led3,0);
-    pinMode(led4,0);
-    pinMode(izquierda,1);
-    pinMode(derecha,1);
-    estado = estado1;
-
+    SerialBegin(9600);
+    pinMode(4,0);
 }
 
 void loop(void)
 {
-    switch(estado)
+    if(SerialAvailable())
     {
-        case estado1:
-            digitalWrite(led1,1);
-            digitalWrite(led2,0);
-            digitalWrite(led3,0);
-            digitalWrite(led4,0);
-            if(digitalRead(izquierda) == 1)
-            {
-                delay(100);
-                if(digitalRead(izquierda) == 1)
-                {
-                    estado = estado2;
-                }
-            }
-            if(digitalRead(derecha)== 1)
-            {
-                delay(100);
-                if(digitalRead(derecha)== 1)
-                {
-                    estado = estado4;
-                }
-            }
-            break;
-        case estado2:
-            digitalWrite(led1,0);
-            digitalWrite(led2,1);
-            digitalWrite(led3,0);
-            digitalWrite(led4,0);
-            if(digitalRead(izquierda) == 1)
-            {
-                delay(100);
-                if(digitalRead(izquierda) == 1)
-                {
-                    estado = estado3;
-                }
-            }
-            if(digitalRead(derecha)== 1)
-            {
-                delay(100);
-                if(digitalRead(derecha)== 1)
-                {
-                    estado = estado1;
-                }
-            }
-            break;
-        case estado3:
-            digitalWrite(led1,0);
-            digitalWrite(led2,0);
-            digitalWrite(led3,1);
-            digitalWrite(led4,0);
-            if(digitalRead(izquierda) == 1)
-            {
-                delay(100);
-                if(digitalRead(izquierda) == 1)
-                {
-                    estado = estado4;
-                }
-            }
-            if(digitalRead(derecha)== 1)
-            {
-                delay(100);
-                if(digitalRead(derecha)== 1)
-                {
-                    estado = estado2;
-                }
-            }
-            break;
-        case estado4:
-            digitalWrite(led1,0);
-            digitalWrite(led2,0);
-            digitalWrite(led3,0);
-            digitalWrite(led4,1);
-            if(digitalRead(izquierda) == 1)
-            {
-                delay(100);
-                if(digitalRead(izquierda) == 1)
-                {
-                    estado = estado1;
-                }
-            }
-            if(digitalRead(derecha)== 1)
-            {
-                delay(100);
-                if(digitalRead(derecha)== 1)
-                {
-                    estado = estado3;
-                }
-            }
-            break;
+        for(int i=0;i<buffer;i++)
+        {
+            vectorIn[i] = SerialRead();
+        }
+        PWMLSB = vectorIn[1];
+        PWMMSB = vectorIn[0];
+        PWM = PWMMSB;
+        PWM = PWM << 8;
+        PWM += PWMLSB;
+        analogWrite(4,PWM);
+        ADC = analogRead(0);
+        ADCMSB = cocienteEntero(ADC,256);
+        ADCLSB = residuo(ADC,256);
+        vectorOut[0] = ADCMSB;
+        vectorOut[1] = ADCLSB;
+        for(int i=0;i<buffer;i++)
+        {
+            SerialWrite(vectorOut[i]);
+        }
+        delay(100);
     }
+    else
+    {
+        analogWrite(4,0);
+    }
+}
+
+char residuo(unsigned int numerator, unsigned int denominator)
+{
+ unsigned int temp1 = numerator;
+ while(temp1 > denominator)
+ {
+  temp1 -= denominator;
+ }
+ return temp1;
+}
+
+char cocienteEntero(unsigned int numerator, unsigned int denominator)
+{
+ unsigned int cont = 0;
+ unsigned int temp1 = numerator;
+ while (temp1 > denominator)
+ {
+  temp1 -= denominator;
+  cont++;
+ }
+ return cont;
 }

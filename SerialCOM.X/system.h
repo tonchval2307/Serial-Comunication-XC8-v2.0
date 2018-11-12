@@ -175,6 +175,9 @@ void setupComunication(void);
 // TODO Insert declarations
 void Hola_Mundo_Init(void);
 void Hola_Mundo(void);
+
+char cocienteEntero(unsigned int numerator, unsigned int denominator);
+char residuo(unsigned int numerator, unsigned int denominator);
 // Comment a function and leverage automatic documentation with slash star star
 /**
     <p><b>Function prototype:</b></p>

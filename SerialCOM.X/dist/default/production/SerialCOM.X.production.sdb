@@ -3,17 +3,14 @@
 [d edition pro ]
 [d chip 18F4550 ]
 [d frameptr 4065 ]
-"23 C:\Users\Carlos_Tonche\Documents\SerialCOM.X\application.c
-[e E3261 LEDS `uc
-estado1 0
-estado2 1
-estado3 2
-estado4 3
-]
-"15
+"19 C:\Users\Carlos_Tonche\Documents\SerialCOM.X\application.c
 [v _setup setup `(v  1 e 1 0 ]
-"27
+"25
 [v _loop loop `(v  1 e 1 0 ]
+"56
+[v _residuo residuo `(uc  1 e 1 0 ]
+"66
+[v _cocienteEntero cocienteEntero `(uc  1 e 1 0 ]
 "7 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\common\aldiv.c
 [v ___aldiv __aldiv `(l  1 e 4 0 ]
 "4 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\common\fleq.c
@@ -58,56 +55,66 @@ estado4 3
 [v _digitalWrite digitalWrite `(v  1 e 1 0 ]
 "209
 [v _digitalRead digitalRead `(uc  1 e 1 0 ]
+"284
+[v _analogRead analogRead `(ui  1 e 2 0 ]
 "314
 [v _ADCConfig ADCConfig `(v  1 e 1 0 ]
-"366
+"340
+[v _analogWrite analogWrite `(v  1 e 1 0 ]
+"367
 [v _CCPConfig CCPConfig `(v  1 e 1 0 ]
-"373
+"374
 [v _TMR0Config TMR0Config `(v  1 e 1 0 ]
-"387
+"388
 [v _Time Time `(d  1 e 4 0 ]
-"392
+"393
 [v _TimerOverflow TimerOverflow `IIH(v  1 e 1 0 ]
-"404
+"405
 [v _TMR1Config TMR1Config `(v  1 e 1 0 ]
-"453
+"454
 [v _PORTAConfig PORTAConfig `(v  1 e 1 0 ]
-"457
+"458
 [v _PORTBConfig PORTBConfig `(v  1 e 1 0 ]
-"461
+"462
 [v _PORTCConfig PORTCConfig `(v  1 e 1 0 ]
-"465
+"466
 [v _PORTDConfig PORTDConfig `(v  1 e 1 0 ]
-"469
+"470
 [v _PORTEConfig PORTEConfig `(v  1 e 1 0 ]
-"490
+"491
 [v _PWM_Max_Duty PWM_Max_Duty `(i  1 e 2 0 ]
-"494
+"495
 [v _PWM1_Init PWM1_Init `(v  1 e 1 0 ]
-"499
+"500
 [v _PWM2_Init PWM2_Init `(v  1 e 1 0 ]
-"504
+"505
 [v _PWM1_Start PWM1_Start `(v  1 e 1 0 ]
-"526
+"527
 [v _PWM2_Start PWM2_Start `(v  1 e 1 0 ]
-"602
+"554
+[v _SerialBegin SerialBegin `(uc  1 e 1 0 ]
+"603
 [v _SerialWrite SerialWrite `(v  1 e 1 0 ]
-"621
+"617
+[v _SerialAvailable SerialAvailable `(uc  1 e 1 0 ]
+"622
 [v _SerialRead SerialRead `(uc  1 e 1 0 ]
-"5 C:\Users\Carlos_Tonche\Documents\SerialCOM.X\application.c
-[v _estado estado `i  1 e 2 0 ]
-"7
-[v _led1 led1 `i  1 e 2 0 ]
+"7 C:\Users\Carlos_Tonche\Documents\SerialCOM.X\application.c
+[v _buffer buffer `uc  1 e 1 0 ]
 "8
-[v _led2 led2 `i  1 e 2 0 ]
-"9
-[v _led3 led3 `i  1 e 2 0 ]
-"10
-[v _led4 led4 `i  1 e 2 0 ]
-"12
-[v _derecha derecha `i  1 e 2 0 ]
+[v _ADC ADC `ui  1 e 2 0 ]
+"11
+[v _ADCMSB ADCMSB `uc  1 e 1 0 ]
+[v _ADCLSB ADCLSB `uc  1 e 1 0 ]
 "13
-[v _izquierda izquierda `i  1 e 2 0 ]
+[v _vectorIn vectorIn `[3]uc  1 e 3 0 ]
+"14
+[v _vectorOut vectorOut `[2]uc  1 e 2 0 ]
+"16
+[v _PWM PWM `ui  1 e 2 0 ]
+"17
+[v _PWMMSB PWMMSB `uc  1 e 1 0 ]
+[v _PWMLSB PWMLSB `uc  1 e 1 0 ]
 [s S81 . 1 `uc 1 RA0 1 0 :1:0 
 `uc 1 RA1 1 0 :1:1 
 `uc 1 RA2 1 0 :1:2 
@@ -218,7 +225,7 @@ estado4 3
 ]
 [u S518 . 1 `S150 1 . 1 0 `S506 1 . 1 0 `S515 1 . 1 0 ]
 [v _PORTDbits PORTDbits `VES518  1 e 1 @3971 ]
-[s S821 . 1 `uc 1 RE0 1 0 :1:0 
+[s S869 . 1 `uc 1 RE0 1 0 :1:0 
 `uc 1 RE1 1 0 :1:1 
 `uc 1 RE2 1 0 :1:2 
 `uc 1 RE3 1 0 :1:3 
@@ -226,31 +233,31 @@ estado4 3
 `uc 1 RDPU 1 0 :1:7 
 ]
 "2868
-[s S828 . 1 `uc 1 CK1SPP 1 0 :1:0 
+[s S876 . 1 `uc 1 CK1SPP 1 0 :1:0 
 `uc 1 CK2SPP 1 0 :1:1 
 `uc 1 OESPP 1 0 :1:2 
 ]
-[s S832 . 1 `uc 1 PD2 1 0 :1:0 
+[s S880 . 1 `uc 1 PD2 1 0 :1:0 
 `uc 1 PC2 1 0 :1:1 
 `uc 1 CCP10 1 0 :1:2 
 `uc 1 CCP9E 1 0 :1:3 
 `uc 1 . 1 0 :3:4 
 `uc 1 CCP2E 1 0 :1:7 
 ]
-[s S839 . 1 `uc 1 RDE 1 0 :1:0 
+[s S887 . 1 `uc 1 RDE 1 0 :1:0 
 `uc 1 WRE 1 0 :1:1 
 `uc 1 CS 1 0 :1:2 
 `uc 1 PC3E 1 0 :1:3 
 `uc 1 . 1 0 :3:4 
 `uc 1 PA2E 1 0 :1:7 
 ]
-[s S846 . 1 `uc 1 . 1 0 :2:0 
+[s S894 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 PB2 1 0 :1:2 
 `uc 1 . 1 0 :4:3 
 `uc 1 RE7 1 0 :1:7 
 ]
-[u S851 . 1 `S821 1 . 1 0 `S828 1 . 1 0 `S832 1 . 1 0 `S839 1 . 1 0 `S846 1 . 1 0 ]
-[v _PORTEbits PORTEbits `VES851  1 e 1 @3972 ]
+[u S899 . 1 `S869 1 . 1 0 `S876 1 . 1 0 `S880 1 . 1 0 `S887 1 . 1 0 `S894 1 . 1 0 ]
+[v _PORTEbits PORTEbits `VES899  1 e 1 @3972 ]
 [s S221 . 1 `uc 1 LATA0 1 0 :1:0 
 `uc 1 LATA1 1 0 :1:1 
 `uc 1 LATA2 1 0 :1:2 
@@ -389,25 +396,54 @@ estado4 3
 "4033
 [u S159 . 1 `S141 1 . 1 0 `S150 1 . 1 0 ]
 [v _TRISDbits TRISDbits `VES159  1 e 1 @3989 ]
-[s S801 . 1 `uc 1 TRISE0 1 0 :1:0 
+[s S849 . 1 `uc 1 TRISE0 1 0 :1:0 
 `uc 1 TRISE1 1 0 :1:1 
 `uc 1 TRISE2 1 0 :1:2 
 ]
 "4245
-[s S805 . 1 `uc 1 RE0 1 0 :1:0 
+[s S853 . 1 `uc 1 RE0 1 0 :1:0 
 `uc 1 RE1 1 0 :1:1 
 `uc 1 RE2 1 0 :1:2 
 ]
-[u S809 . 1 `S801 1 . 1 0 `S805 1 . 1 0 ]
-[v _TRISEbits TRISEbits `VES809  1 e 1 @3990 ]
+[u S857 . 1 `S849 1 . 1 0 `S853 1 . 1 0 ]
+[v _TRISEbits TRISEbits `VES857  1 e 1 @3990 ]
 "5402
 [v _TXREG TXREG `VEuc  1 e 1 @4013 ]
 "5414
 [v _RCREG RCREG `VEuc  1 e 1 @4014 ]
 "5426
 [v _SPBRG SPBRG `VEuc  1 e 1 @4015 ]
+[s S697 . 1 `uc 1 CCP2M 1 0 :4:0 
+`uc 1 DC2B 1 0 :2:4 
+]
+"6261
+[s S700 . 1 `uc 1 CCP2M0 1 0 :1:0 
+`uc 1 CCP2M1 1 0 :1:1 
+`uc 1 CCP2M2 1 0 :1:2 
+`uc 1 CCP2M3 1 0 :1:3 
+`uc 1 DC2B0 1 0 :1:4 
+`uc 1 DC2B1 1 0 :1:5 
+]
+[u S707 . 1 `S697 1 . 1 0 `S700 1 . 1 0 ]
+[v _CCP2CONbits CCP2CONbits `VES707  1 e 1 @4026 ]
 "6313
 [v _CCPR2L CCPR2L `VEuc  1 e 1 @4027 ]
+[s S666 . 1 `uc 1 CCP1M 1 0 :4:0 
+`uc 1 DC1B 1 0 :2:4 
+`uc 1 P1M 1 0 :2:6 
+]
+"6354
+[s S670 . 1 `uc 1 CCP1M0 1 0 :1:0 
+`uc 1 CCP1M1 1 0 :1:1 
+`uc 1 CCP1M2 1 0 :1:2 
+`uc 1 CCP1M3 1 0 :1:3 
+`uc 1 DC1B0 1 0 :1:4 
+`uc 1 DC1B1 1 0 :1:5 
+`uc 1 P1M0 1 0 :1:6 
+`uc 1 P1M1 1 0 :1:7 
+]
+[u S679 . 1 `S666 1 . 1 0 `S670 1 . 1 0 ]
+[v _CCP1CONbits CCP1CONbits `VES679  1 e 1 @4029 ]
 "6496
 [v _CCPR1L CCPR1L `VEuc  1 e 1 @4030 ]
 "6510
@@ -456,11 +492,11 @@ estado4 3
 [v _PR2 PR2 `VEuc  1 e 1 @4043 ]
 "7415
 [v _T1CON T1CON `VEuc  1 e 1 @4045 ]
-[s S745 . 1 `uc 1 . 1 0 :2:0 
+[s S793 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_T1SYNC 1 0 :1:2 
 ]
 "7448
-[s S748 . 1 `uc 1 TMR1ON 1 0 :1:0 
+[s S796 . 1 `uc 1 TMR1ON 1 0 :1:0 
 `uc 1 TMR1CS 1 0 :1:1 
 `uc 1 nT1SYNC 1 0 :1:2 
 `uc 1 T1OSCEN 1 0 :1:3 
@@ -468,19 +504,19 @@ estado4 3
 `uc 1 T1RUN 1 0 :1:6 
 `uc 1 RD16 1 0 :1:7 
 ]
-[s S756 . 1 `uc 1 . 1 0 :2:0 
+[s S804 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 T1SYNC 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
 `uc 1 T1CKPS0 1 0 :1:4 
 `uc 1 T1CKPS1 1 0 :1:5 
 ]
-[s S762 . 1 `uc 1 . 1 0 :3:0 
+[s S810 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 SOSCEN 1 0 :1:3 
 `uc 1 . 1 0 :3:4 
 `uc 1 T1RD16 1 0 :1:7 
 ]
-[u S767 . 1 `S745 1 . 1 0 `S748 1 . 1 0 `S756 1 . 1 0 `S762 1 . 1 0 ]
-[v _T1CONbits T1CONbits `VES767  1 e 1 @4045 ]
+[u S815 . 1 `S793 1 . 1 0 `S796 1 . 1 0 `S804 1 . 1 0 `S810 1 . 1 0 ]
+[v _T1CONbits T1CONbits `VES815  1 e 1 @4045 ]
 "7525
 [v _TMR1L TMR1L `VEuc  1 e 1 @4046 ]
 "7532
@@ -491,7 +527,7 @@ estado4 3
 [v _TMR0L TMR0L `VEuc  1 e 1 @4054 ]
 "8153
 [v _TMR0H TMR0H `VEuc  1 e 1 @4055 ]
-[s S693 . 1 `uc 1 RBIF 1 0 :1:0 
+[s S741 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -501,7 +537,7 @@ estado4 3
 `uc 1 GIE_GIEH 1 0 :1:7 
 ]
 "8614
-[s S702 . 1 `uc 1 . 1 0 :1:0 
+[s S750 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 INT0F 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -510,12 +546,12 @@ estado4 3
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
-[s S711 . 1 `uc 1 . 1 0 :6:0 
+[s S759 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
-[u S715 . 1 `S693 1 . 1 0 `S702 1 . 1 0 `S711 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES715  1 e 1 @4082 ]
+[u S763 . 1 `S741 1 . 1 0 `S750 1 . 1 0 `S759 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES763  1 e 1 @4082 ]
 "9021
 [v _BRGH BRGH `VEb  1 e 0 @32098 ]
 "9078
@@ -528,14 +564,6 @@ estado4 3
 [v _CCP2M3 CCP2M3 `VEb  1 e 0 @32211 ]
 "9201
 [v _CREN CREN `VEb  1 e 0 @32092 ]
-"9255
-[v _DC1B0 DC1B0 `VEb  1 e 0 @32236 ]
-"9258
-[v _DC1B1 DC1B1 `VEb  1 e 0 @32237 ]
-"9261
-[v _DC2B0 DC2B0 `VEb  1 e 0 @32212 ]
-"9264
-[v _DC2B1 DC2B1 `VEb  1 e 0 @32213 ]
 "9693
 [v _FERR FERR `VEb  1 e 0 @32090 ]
 "10176
@@ -554,10 +582,6 @@ estado4 3
 [v _T2CKPS1 T2CKPS1 `VEb  1 e 0 @32337 ]
 "10848
 [v _TMR2ON TMR2ON `VEb  1 e 0 @32338 ]
-"10929
-[v _TRISC1 TRISC1 `VEb  1 e 0 @31905 ]
-"10932
-[v _TRISC2 TRISC2 `VEb  1 e 0 @31906 ]
 "10935
 [v _TRISC6 TRISC6 `VEb  1 e 0 @31910 ]
 "10938
@@ -577,10 +601,10 @@ estado4 3
 {
 "23
 } 0
-"15 C:\Users\Carlos_Tonche\Documents\SerialCOM.X\application.c
+"19 C:\Users\Carlos_Tonche\Documents\SerialCOM.X\application.c
 [v _setup setup `(v  1 e 1 0 ]
 {
-"25
+"23
 } 0
 "59 C:\Users\Carlos_Tonche\Documents\SerialCOM.X\main.c
 [v _pinMode pinMode `(v  1 e 1 0 ]
@@ -591,29 +615,35 @@ estado4 3
 [v pinMode@pin pin `uc  1 a 1 3 ]
 "133
 } 0
-"27 C:\Users\Carlos_Tonche\Documents\SerialCOM.X\application.c
+"554
+[v _SerialBegin SerialBegin `(uc  1 e 1 0 ]
+{
+"556
+[v SerialBegin@x x `ul  1 a 4 22 ]
+"554
+[v SerialBegin@baudRate baudRate `Cl  1 p 4 14 ]
+"575
+} 0
+"25 C:\Users\Carlos_Tonche\Documents\SerialCOM.X\application.c
 [v _loop loop `(v  1 e 1 0 ]
 {
-"120
+"44
+[v loop@i_1229 i `i  1 a 2 10 ]
+"29
+[v loop@i i `i  1 a 2 8 ]
+"54
 } 0
-"134 C:\Users\Carlos_Tonche\Documents\SerialCOM.X\main.c
-[v _digitalWrite digitalWrite `(v  1 e 1 0 ]
+"56
+[v _residuo residuo `(uc  1 e 1 0 ]
 {
-[v digitalWrite@pin pin `uc  1 a 1 wreg ]
-[v digitalWrite@pin pin `uc  1 a 1 wreg ]
-[v digitalWrite@mode mode `uc  1 p 1 0 ]
-[v digitalWrite@pin pin `uc  1 a 1 3 ]
-"208
+"58
+[v residuo@temp1 temp1 `ui  1 a 2 4 ]
+"56
+[v residuo@numerator numerator `ui  1 p 2 0 ]
+[v residuo@denominator denominator `ui  1 p 2 2 ]
+"64
 } 0
-"209
-[v _digitalRead digitalRead `(uc  1 e 1 0 ]
-{
-[v digitalRead@pin pin `uc  1 a 1 wreg ]
-[v digitalRead@pin pin `uc  1 a 1 wreg ]
-[v digitalRead@pin pin `uc  1 a 1 2 ]
-"283
-} 0
-"37
+"37 C:\Users\Carlos_Tonche\Documents\SerialCOM.X\main.c
 [v _delay delay `(v  1 e 1 0 ]
 {
 "42
@@ -624,72 +654,194 @@ estado4 3
 [v delay@milis milis `Ci  1 p 2 0 ]
 "47
 } 0
+"66 C:\Users\Carlos_Tonche\Documents\SerialCOM.X\application.c
+[v _cocienteEntero cocienteEntero `(uc  1 e 1 0 ]
+{
+"69
+[v cocienteEntero@temp1 temp1 `ui  1 a 2 6 ]
+"68
+[v cocienteEntero@cont cont `ui  1 a 2 4 ]
+"66
+[v cocienteEntero@numerator numerator `ui  1 p 2 0 ]
+[v cocienteEntero@denominator denominator `ui  1 p 2 2 ]
+"76
+} 0
+"340 C:\Users\Carlos_Tonche\Documents\SerialCOM.X\main.c
+[v _analogWrite analogWrite `(v  1 e 1 0 ]
+{
+[v analogWrite@pin pin `uc  1 a 1 wreg ]
+[v analogWrite@pin pin `uc  1 a 1 wreg ]
+[v analogWrite@value value `ui  1 p 2 0 ]
+[v analogWrite@pin pin `uc  1 a 1 4 ]
+"366
+} 0
+"10 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\common\xxtofl.c
+[v ___xxtofl __xxtofl `(d  1 e 4 0 ]
+{
+[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
+"13
+[v ___xxtofl@arg arg `ul  1 a 4 30 ]
+"12
+[v ___xxtofl@exp exp `uc  1 a 1 29 ]
+"10
+[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
+[v ___xxtofl@val val `l  1 p 4 20 ]
+"15
+[v ___xxtofl@sign sign `uc  1 a 1 28 ]
+"44
+} 0
+"43 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\common\fltol.c
+[v ___fltol __fltol `(l  1 e 4 0 ]
+{
+"45
+[v ___fltol@exp1 exp1 `uc  1 a 1 93 ]
+[v ___fltol@sign1 sign1 `uc  1 a 1 92 ]
+"43
+[v ___fltol@f1 f1 `d  1 p 4 84 ]
+"70
+} 0
+"8 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\common\sprcmul.c
+[v ___flmul __flmul `(d  1 e 4 0 ]
+{
+[s S1552 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+"13
+[s S1557 . 4 `s 1 wordA 2 0 `s 1 wordB 2 2 ]
+[u S1560 . 4 `l 1 i 4 0 `d 1 f 4 0 `S1552 1 fAsBytes 4 0 `S1557 1 fAsWords 4 0 ]
+[v ___flmul@prod prod `S1560  1 a 4 78 ]
+"12
+[v ___flmul@grs grs `ul  1 a 4 72 ]
+[s S1628 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+"14
+[u S1631 . 2 `s 1 i 2 0 `us 1 n 2 0 `S1628 1 nAsBytes 2 0 ]
+[v ___flmul@temp temp `S1631  1 a 2 82 ]
+"10
+[v ___flmul@bexp bexp `uc  1 a 1 77 ]
+"11
+[v ___flmul@aexp aexp `uc  1 a 1 76 ]
+"9
+[v ___flmul@sign sign `uc  1 a 1 71 ]
+"8
+[v ___flmul@b b `d  1 p 4 59 ]
+[v ___flmul@a a `d  1 p 4 63 ]
+"205
+} 0
+"11 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+{
+"21
+[v ___fldiv@grs grs `ul  1 a 4 53 ]
+"22
+[v ___fldiv@rem rem `ul  1 a 4 46 ]
+"20
+[v ___fldiv@new_exp new_exp `s  1 a 2 51 ]
+"19
+[v ___fldiv@aexp aexp `uc  1 a 1 58 ]
+"18
+[v ___fldiv@bexp bexp `uc  1 a 1 57 ]
+"16
+[v ___fldiv@sign sign `uc  1 a 1 50 ]
+"11
+[v ___fldiv@b b `d  1 p 4 34 ]
+[v ___fldiv@a a `d  1 p 4 38 ]
+"185
+} 0
+"491 C:\Users\Carlos_Tonche\Documents\SerialCOM.X\main.c
+[v _PWM_Max_Duty PWM_Max_Duty `(i  1 e 2 0 ]
+{
+"494
+} 0
+"284
+[v _analogRead analogRead `(ui  1 e 2 0 ]
+{
+[v analogRead@pin pin `uc  1 a 1 wreg ]
+[v analogRead@pin pin `uc  1 a 1 wreg ]
+[v analogRead@pin pin `uc  1 a 1 4 ]
+"313
+} 0
+"603
+[v _SerialWrite SerialWrite `(v  1 e 1 0 ]
+{
+[v SerialWrite@dataWrite dataWrite `uc  1 a 1 wreg ]
+[v SerialWrite@dataWrite dataWrite `uc  1 a 1 wreg ]
+[v SerialWrite@dataWrite dataWrite `uc  1 a 1 0 ]
+"607
+} 0
+"622
+[v _SerialRead SerialRead `(uc  1 e 1 0 ]
+{
+"626
+} 0
+"617
+[v _SerialAvailable SerialAvailable `(uc  1 e 1 0 ]
+{
+"620
+} 0
 "25
 [v _configuracionInicial configuracionInicial `(v  1 e 1 0 ]
 {
 "36
 } 0
-"404
+"405
 [v _TMR1Config TMR1Config `(v  1 e 1 0 ]
 {
-"407
+"408
 } 0
-"373
+"374
 [v _TMR0Config TMR0Config `(v  1 e 1 0 ]
 {
-"386
+"387
 } 0
-"469
+"470
 [v _PORTEConfig PORTEConfig `(v  1 e 1 0 ]
 {
-"474
+"475
 } 0
-"465
+"466
 [v _PORTDConfig PORTDConfig `(v  1 e 1 0 ]
 {
-"468
+"469
 } 0
-"461
+"462
 [v _PORTCConfig PORTCConfig `(v  1 e 1 0 ]
 {
-"464
+"465
 } 0
-"457
+"458
 [v _PORTBConfig PORTBConfig `(v  1 e 1 0 ]
 {
-"460
+"461
 } 0
-"453
+"454
 [v _PORTAConfig PORTAConfig `(v  1 e 1 0 ]
 {
-"456
+"457
 } 0
-"366
+"367
 [v _CCPConfig CCPConfig `(v  1 e 1 0 ]
 {
-"372
+"373
 } 0
-"526
+"527
 [v _PWM2_Start PWM2_Start `(v  1 e 1 0 ]
 {
-"542
+"543
 } 0
-"499
+"500
 [v _PWM2_Init PWM2_Init `(v  1 e 1 0 ]
 {
 [v PWM2_Init@fre fre `l  1 p 4 14 ]
-"503
-} 0
 "504
+} 0
+"505
 [v _PWM1_Start PWM1_Start `(v  1 e 1 0 ]
 {
-"520
+"521
 } 0
-"494
+"495
 [v _PWM1_Init PWM1_Init `(v  1 e 1 0 ]
 {
 [v PWM1_Init@fre fre `l  1 p 4 14 ]
-"498
+"499
 } 0
 "7 C:\Program Files (x86)\Microchip\xc8\v2.00\pic\sources\c99\common\aldiv.c
 [v ___aldiv __aldiv `(l  1 e 4 0 ]
@@ -709,8 +861,8 @@ estado4 3
 {
 "324
 } 0
-"392
+"393
 [v _TimerOverflow TimerOverflow `IIH(v  1 e 1 0 ]
 {
-"403
+"404
 } 0
